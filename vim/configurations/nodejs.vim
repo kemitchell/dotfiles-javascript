@@ -25,3 +25,7 @@ autocmd BufNewFile,BufRead .eslintrc set filetype=json
 autocmd BufNewFile,BufRead .jshintrc set filetype=json
 autocmd BufNewFile,BufRead .jscsrc set filetype=json
 
+
+augroup markdown
+  autocmd FileType markdown noremap <buffer> <leader>t <Esc>:!node-test<CR>
+augroup END
