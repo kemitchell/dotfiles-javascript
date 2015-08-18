@@ -1,0 +1,3 @@
+export NODE_REPL_HISTORY_FILE=$HOME/.node_history
+export NODE_REPL_HISTORY_SIZE=10000
+export NODE_REPL_MODE=strict
