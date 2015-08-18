@@ -1,3 +1,4 @@
 #!/bin/bash
-node-install-runtime
+set -e
+node-upgrade-runtime
 node-install-packages
