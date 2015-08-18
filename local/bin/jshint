@@ -1,0 +1,8 @@
+#!/bin/sh
+COMMAND=jshint
+if [ -e ./node_modules/.bin/$COMMAND ]
+then
+	./node_modules/.bin/$COMMAND "$@"
+else
+	$(which $COMMAND) "$@"
+fi
