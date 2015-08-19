@@ -17,7 +17,7 @@ augroup json
   autocmd FileType json setlocal tabstop=2
   autocmd FileType json setlocal expandtab
   autocmd FileType json setlocal foldmethod=syntax
-  autocmd FileType json setlocal formatprg=formatjson
+  autocmd FileType json setlocal formatprg=format-json
 augroup END
 
 autocmd BufNewFile,BufRead *.json set filetype=json
