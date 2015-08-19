@@ -12,11 +12,11 @@ cat <<PACKAGES | xargs npm --global install
 	exorcist
 	faucet
 	fixpack
+	git-latest-semver-tag
 	http-server
 	json
 	licensee
 	licensor
 	semver
 	tape
-	tap
 PACKAGES
