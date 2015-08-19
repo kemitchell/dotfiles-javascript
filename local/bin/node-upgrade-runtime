@@ -1,4 +1,6 @@
 #!/bin/bash
+sudo apt-get update
+sudo apt-get install -y curl
 STABLE=v$(curl http://semver.io/node/stable)
 INSTALLED=$(node --version || echo '')
 REPO=$PREFIX/source/node
@@ -9,7 +11,6 @@ if [ "$STABLE" = "${INSTALLED%%\\n}" ]; then
 	echo "node@$STABLE is already installed"
 	exit 0
 else
-	banner "Installing node@$STABLE"
 	mkdir -p "$SOURCE"
 
 	if [ -d "$REPO" ]; then
