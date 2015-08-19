@@ -1,20 +1,22 @@
 #!/bin/zsh
-npm --global install ansimd \
-	babel \
-	browserify \
-	commonform-cli \
-	covert \
-	csslint \
-	cssmin \
-	dupsh \
-	eslint \
-	exorcist \
-	faucet \
-	fixpack \
-	http-server \
-	json \
-	licensee \
-	licensor \
-	semver \
-	tape \
+cat <<PACKAGES | xargs npm --global install
+	ansimd
+	babel
+	browserify
+	commonform-cli
+	covert
+	csslint
+	cssmin
+	dupsh
+	eslint
+	exorcist
+	faucet
+	fixpack
+	http-server
+	json
+	licensee
+	licensor
+	semver
+	tape
 	tap
+PACKAGES
