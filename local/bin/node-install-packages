@@ -17,6 +17,8 @@ cat <<PACKAGES | xargs npm --global install
 	json
 	licensee
 	licensor
+	lispy-json
+	node-eval-json
 	semver
 	tape
 PACKAGES
