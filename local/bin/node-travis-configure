@@ -9,8 +9,8 @@ HERE
 
 echo ".travis.yml" >> .gitignore
 
-git add .travis.yml .gitignore
+git add .travis.yml .npmignore
 git commit -m "Configure Travis CI"
 
-enabletravis
+node-travis-enable
 git push
