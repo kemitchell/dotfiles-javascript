@@ -7,7 +7,7 @@ node_js: "stable"
 sudo: false
 HERE
 
-echo ".travis.yml" >> .gitignore
+echo ".travis.yml" >> .npmignore
 
 git add .travis.yml .npmignore
 git commit -m "Configure Travis CI"
