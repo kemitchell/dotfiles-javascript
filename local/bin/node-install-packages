@@ -15,6 +15,7 @@ cat <<PACKAGES | xargs npm --global install
 	git-latest-semver-tag
 	http-server
 	json
+	jsonlint
 	licensee
 	licensor
 	lispy-json
