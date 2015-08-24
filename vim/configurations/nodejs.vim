@@ -1,7 +1,7 @@
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_json_checkers = ['jsonval']
+let g:syntastic_json_checkers = ['jsonlint']
 let g:syntastic_aggregate_errors = 1
 
 augroup javascript
@@ -11,7 +11,6 @@ augroup END
 
 augroup json
   autocmd!
-  autocmd FileType json noremap <buffer> <leader>t <Esc>:!node-test<CR>
   autocmd FileType json setlocal autoindent
   autocmd FileType json setlocal shiftwidth=2
   autocmd FileType json setlocal tabstop=2
@@ -24,7 +23,6 @@ autocmd BufNewFile,BufRead *.json set filetype=json
 autocmd BufNewFile,BufRead .eslintrc set filetype=json
 autocmd BufNewFile,BufRead .jshintrc set filetype=json
 autocmd BufNewFile,BufRead .jscsrc set filetype=json
-
 
 augroup markdown
   autocmd FileType markdown noremap <buffer> <leader>t <Esc>:!node-test<CR>
