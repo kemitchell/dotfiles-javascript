@@ -1,0 +1,10 @@
+#!/bin/zsh
+if [ -z "$1" ]; then
+	echo "Usage: install-redis <version>"
+	exit 1
+fi
+
+git clone https://github.com/antirez/redis $HOME/.local/source/redis
+cd $HOME/.local/source/redis
+git checkout "$1"
+make PREFIX=$PREFIX
