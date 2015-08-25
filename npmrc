@@ -1,0 +1,12 @@
+_auth=${NPM_TOKEN}
+email=kyle@kemitchell.com
+git-tag-version=true
+init-author-email=kyle@kemitchell.com
+init-author-name=Kyle E. Mitchell
+init-author-url=https://kemitchell.com/
+init-license=Apache-2.0
+init-version=0.0.0
+loglevel=error
+save-prefix=~
+spin=true
+tag-version-prefix=v
