@@ -19,6 +19,7 @@ cat <<PACKAGES | xargs npm --global install
 	licensee
 	licensor
 	lispy-json
+	lispyscript
 	node-eval-json
 	semver
 	tape
