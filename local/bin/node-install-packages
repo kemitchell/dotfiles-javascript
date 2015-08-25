@@ -7,6 +7,7 @@ cat <<PACKAGES | xargs npm --global install
 	covert
 	csslint
 	cssmin
+	difflet
 	dupsh
 	eslint
 	exorcist
