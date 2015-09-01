@@ -1,5 +1,4 @@
 //registry.npmjs.org/:_authToken=${NPM_TOKEN}
-email=kyle@kemitchell.com
 git-tag-version=true
 init-author-email=kyle@kemitchell.com
 init-author-name=Kyle E. Mitchell
