@@ -1,0 +1,7 @@
+#!/bin/zsh
+npm i --save-dev defence-cli replace-require-self
+if [ ! -f README.md ]; then
+	echo "\`\`\`javascript\nvar assert = require('assert')\n\`\`\`" > README.md
+fi
+json -I -f package.json -e 'this.scripts.test="defence README.md | replace-require-self | node"' || \
+json -I -f package.json -e 'this.scripts={test:"defence README.md | replace-require-self | node"}'
