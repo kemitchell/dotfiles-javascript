@@ -24,5 +24,6 @@ cat <<PACKAGES | xargs npm --global install
 	lispyscript
 	node-eval-json
 	semver
+	standard
 	tape
 PACKAGES
