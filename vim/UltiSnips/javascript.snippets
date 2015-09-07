@@ -33,17 +33,16 @@ endsnippet
 
 snippet if
 if ($1) {
-	$0 }
+	$2 }$0
 endsnippet
 
 snippet iferr
-if (error) {
-	callback(error) }$0
+if (error) { callback(error) }$0
 endsnippet
 
 snippet eif
 else if ($1) {
-	$0 }
+	$2 }$0
 endsnippet
 
 snippet e
@@ -135,10 +134,10 @@ function(error, ${1:result}) {
 endsnippet
 
 snippet mefun
+module.exports = $1
+
 function $1($2) {
 	$0 }
-
-module.exports = $1
 endsnippet
 
 snippet me "module.exports ="
@@ -175,6 +174,14 @@ emit('${1:error}', '$2')
 endsnippet
 
 # Testing
+
+snippet ass
+var assert = require('assert')
+endsnippet
+
+snippet tape
+var tape = require('tape')
+endsnippet
 
 snippet t
 test('$1', function(test) {
@@ -253,8 +260,7 @@ endsnippet
 snippet fold "reduce" w
 reduce(
 	function(${1:mem}, ${2:element}$3) {
-		$0
-	},
+		$0 },
 	$4)
 endsnippet
 
