@@ -5,7 +5,7 @@ STABLE=v$(curl http://semver.io/node/stable)
 INSTALLED=$(node --version || echo '')
 REPO=$PREFIX/source/node
 SOURCE=$(dirname $REPO)
-GIT="https://github.com/joyent/node"
+GIT="https://github.com/nodejs/node"
 
 if [ "$STABLE" = "${INSTALLED%%\\n}" ]; then
 	echo "node@$STABLE is already installed"
@@ -17,7 +17,7 @@ else
 		echo "Already checked out"
 		cd "$REPO"
 		make distclean
-	else 
+	else
 		git clone "$GIT" "$REPO"
 		cd "$REPO"
 	fi
