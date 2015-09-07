@@ -6,6 +6,5 @@ init-author-url=https://kemitchell.com/
 init-license=Apache-2.0
 init-version=0.0.0
 loglevel=error
-save-prefix=^
 spin=true
 tag-version-prefix=v
