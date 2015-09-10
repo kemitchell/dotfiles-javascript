@@ -1,0 +1,1 @@
+gh-org-repos commonform | selecta | xargs hub clone

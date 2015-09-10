@@ -1,0 +1,1 @@
+gh-my-repos | selecta | xargs hub clone
