@@ -1,1 +1,1 @@
-gh-my-repos | selecta | xargs hub clone
+ghmyrepos | selecta | xargs hub clone
