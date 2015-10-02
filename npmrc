@@ -8,3 +8,5 @@ init-version=0.0.0
 loglevel=error
 spin=false
 tag-version-prefix=v
+color=false
+progress=false

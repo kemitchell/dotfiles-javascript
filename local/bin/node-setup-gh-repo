@@ -1,0 +1,22 @@
+#!/bin/bash
+REPO=$(json repository < package.json)
+PACKAGE=$(basename $REPO)
+DESCRIPTION=$(json description < package.json)
+HOMEPAGE="https://npmjs.com/packages/$PACKAGE"
+curl \
+	-X PATCH \
+	-H "Authorization: token $GITHUB_TOKEN" \
+	-H "Content-Type: application/json" \
+	--data @- \
+	https://api.github.com/repos/$REPO << JSON
+{
+  "name": "$PACKAGE",
+  "description": "$DESCRIPTION",
+  "homepage": "$HOMEPAGE",
+  "private": false,
+  "has_issues": true,
+  "has_wiki": false,
+  "has_downloads": true
+}
+JSON
+
