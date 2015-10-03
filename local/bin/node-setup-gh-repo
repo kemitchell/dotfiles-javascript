@@ -1,6 +1,6 @@
 #!/bin/bash
 REPO=$(json repository < package.json)
-PACKAGE=$(basename $REPO)
+PACKAGE=$(json name < package.json)
 DESCRIPTION=$(json description < package.json)
 HOMEPAGE="https://npmjs.com/packages/$PACKAGE"
 curl \
