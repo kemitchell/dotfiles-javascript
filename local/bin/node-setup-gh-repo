@@ -1,6 +1,7 @@
 #!/bin/bash
 REPO=$(json repository < package.json)
 PACKAGE=$(json name < package.json)
+BASENAME=`basename "$REPO"`
 DESCRIPTION=$(json description < package.json)
 HOMEPAGE="https://npmjs.com/packages/$PACKAGE"
 curl \
@@ -10,7 +11,7 @@ curl \
 	--data @- \
 	https://api.github.com/repos/$REPO << JSON
 {
-  "name": "$PACKAGE",
+  "name": "$BASENAME",
   "description": "$DESCRIPTION",
   "homepage": "$HOMEPAGE",
   "private": false,
