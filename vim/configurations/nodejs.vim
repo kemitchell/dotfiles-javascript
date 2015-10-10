@@ -24,6 +24,16 @@ autocmd BufNewFile,BufRead .eslintrc set filetype=json
 autocmd BufNewFile,BufRead .jshintrc set filetype=json
 autocmd BufNewFile,BufRead .jscsrc set filetype=json
 
+augroup pegjs
+  autocmd!
+  autocmd FileType json setlocal autoindent
+  autocmd FileType json setlocal shiftwidth=2
+  autocmd FileType json setlocal tabstop=2
+  autocmd FileType json setlocal expandtab
+augroup END
+
+autocmd BufNewFile,BufRead *.pegjs set filetype=pegjs
+
 augroup markdown
   autocmd FileType markdown noremap <buffer> <leader>t <Esc>:!node-test<CR>
 augroup END
