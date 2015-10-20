@@ -9,6 +9,8 @@ augroup javascript
   autocmd FileType javascript noremap <buffer> <leader>m <Esc>:!make<CR>
 augroup END
 
+autocmd BufNewFile,BufRead Jakefile set filetype=javascript
+
 augroup json
   autocmd!
   autocmd FileType json setlocal autoindent
@@ -21,8 +23,8 @@ augroup END
 
 autocmd BufNewFile,BufRead *.json set filetype=json
 autocmd BufNewFile,BufRead .eslintrc set filetype=json
-autocmd BufNewFile,BufRead .jshintrc set filetype=json
 autocmd BufNewFile,BufRead .jscsrc set filetype=json
+autocmd BufNewFile,BufRead .jshintrc set filetype=json
 
 augroup pegjs
   autocmd!
