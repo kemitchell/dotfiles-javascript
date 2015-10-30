@@ -1,36 +1,50 @@
-#!/bin/bash
-sudo apt-get update
-sudo apt-get install -y curl
-STABLE=v$(curl http://semver.io/node/stable)
-INSTALLED=$(node --version || echo '')
-REPO=$PREFIX/source/node
-SOURCE=$(dirname $REPO)
-GIT="https://github.com/nodejs/node"
+#!/bin/zsh
 
-if [ "$STABLE" = "${INSTALLED%%\\n}" ]; then
-	echo "node@$STABLE is already installed"
+# Fetch the latest stable version from semver.io, prepending "v" to make
+# the current stable version Git tag name.
+STABLE_VERSION_TAG=v$(curl http://semver.io/node/stable 2>/dev/null)
+echo "Current Stable Node.js is $STABLE_VERSION_TAG"
+
+# If Node.js is installed, read the installed version number.
+INSTALLED_VERSION=$(node --version || echo "NONE")
+
+# If the installed version is the current stable version, declare
+# victory and quit.
+if [ "$STABLE_VERSION_TAG" = "${INSTALLED_VERSION%%\\n}" ]; then
+	echo "Node.js version $STABLE_VERSION_TAG is already installed"
 	exit 0
+# Otherwise, install latest Node.js from Git.
 else
+  SOURCE=$(dirname "$PREFIX/source/node")
 	mkdir -p "$SOURCE"
 
-	if [ -d "$REPO" ]; then
-		echo "Already checked out"
-		cd "$REPO"
+  # Already cloned.
+	if [ -d "$SOURCE" ]; then
+		cd "$SOURCE"
 		make distclean
+    git fetch
+  # Clone from GitHub.
 	else
-		git clone "$GIT" "$REPO"
-		cd "$REPO"
+		git clone "https://github.com/nodejs/node" "$SOURCE"
+		cd "$SOURCE"
 	fi
 
+  # Install build tools.
 	sudo apt-get update
 	sudo apt-get -y install build-essential curl libssl-dev openssl
 
-	git checkout "$STABLE"
+  # Build and install.
+	git checkout "$STABLE_VERSION_TAG"
 	cmi
+
+  # Upgrade to latest npm.
 	npm install --global npm
 
+  # Print versions.
 	which node
 	node --version
 	which npm
 	npm --version
+
+  exit 0
 fi
