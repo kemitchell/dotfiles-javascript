@@ -13,16 +13,20 @@ INSTALLED_VERSION=$(node --version || echo "NONE")
 if [ "$STABLE_VERSION_TAG" = "${INSTALLED_VERSION%%\\n}" ]; then
 	echo "Node.js version $STABLE_VERSION_TAG is already installed"
 	exit 0
+
 # Otherwise, install latest Node.js from Git.
 else
-  SOURCE=$(dirname "$PREFIX/source/node")
+  SOURCE="$PREFIX/source/node"
 	mkdir -p "$SOURCE"
+
+  echo "$SOURCE"
 
   # Already cloned.
 	if [ -d "$SOURCE" ]; then
 		cd "$SOURCE"
 		make distclean
     git fetch
+
   # Clone from GitHub.
 	else
 		git clone "https://github.com/nodejs/node" "$SOURCE"
@@ -43,6 +47,7 @@ else
   # Print versions.
 	which node
 	node --version
+
 	which npm
 	npm --version
 
