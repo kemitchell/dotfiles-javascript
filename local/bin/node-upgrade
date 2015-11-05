@@ -2,7 +2,7 @@
 
 # Fetch the latest stable version from semver.io, prepending "v" to make
 # the current stable version Git tag name.
-STABLE_VERSION_TAG=v$(curl http://semver.io/node/stable 2>/dev/null)
+STABLE_VERSION_TAG=v$(node-current-version)
 echo "Current Stable Node.js is $STABLE_VERSION_TAG"
 
 # If Node.js is installed, read the installed version number.
