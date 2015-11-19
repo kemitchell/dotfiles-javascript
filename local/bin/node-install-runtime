@@ -1,0 +1,36 @@
+#!/bin/zsh
+STABLE_VERSION_TAG="$1"
+SOURCE="$PREFIX/source/node"
+mkdir -p "$SOURCE"
+
+echo "$SOURCE"
+
+# Already cloned.
+if [ -d "$SOURCE" ]; then
+  cd "$SOURCE"
+  make distclean
+  git fetch
+
+# Clone from GitHub.
+else
+  git clone "https://github.com/nodejs/node" "$SOURCE"
+  cd "$SOURCE"
+fi
+
+# Install build tools.
+sudo apt-get update
+sudo apt-get -y install build-essential curl libssl-dev openssl
+
+# Build and install.
+git checkout "$STABLE_VERSION_TAG"
+cmi
+
+# Upgrade to latest npm.
+npm install --global npm
+
+# Print versions.
+which node
+node --version
+
+which npm
+npm --version
