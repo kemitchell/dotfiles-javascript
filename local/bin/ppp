@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 
+npm install
 git push
 git push --tags
 npm publish
