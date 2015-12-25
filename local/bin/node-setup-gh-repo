@@ -3,7 +3,7 @@ REPO=$(json repository < package.json)
 PACKAGE=$(json name < package.json)
 BASENAME=`basename "$REPO"`
 DESCRIPTION=$(json description < package.json)
-HOMEPAGE="https://npmjs.com/packages/$PACKAGE"
+HOMEPAGE="https://www.npmjs.com/packages/$PACKAGE"
 curl \
 	-X PATCH \
 	-H "Authorization: token $GITHUB_TOKEN" \
