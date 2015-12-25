@@ -2,6 +2,7 @@
 set -e
 
 cat > .travis.yml <<HERE
+---
 language: "node_js"
 node_js: "node"
 sudo: false
