@@ -1,2 +1,2 @@
 #!/bin/sh
-git clone $(npm info ${*} repository.url)
+git clone $(npm info ${*} repository.url | sed 's!git+https!https!')
