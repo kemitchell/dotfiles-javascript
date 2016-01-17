@@ -6,6 +6,11 @@ cat > .travis.yml <<HERE
 language: "node_js"
 node_js: "node"
 sudo: false
+cache:
+  directories:
+    - "node_modules"
+install: "npm install"
+script: "npm test"
 HERE
 
 echo ".travis.yml" >> .npmignore
