@@ -1,6 +1,8 @@
+#!/bin/bash
 set -e
+
 if [ -z "$1" ]; then
-  echo "Usage: <version>"
+  echo "Usage: <version|major|minor|patch>"
   exit 1
 fi
 
