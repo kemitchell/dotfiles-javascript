@@ -1,1 +1,2 @@
-alias n=npm
+alias nn='node'
+alias n='npm'
