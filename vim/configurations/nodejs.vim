@@ -4,9 +4,14 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_json_checkers = ['jsonlint']
 let g:syntastic_aggregate_errors = 1
 
+fu! JSSettings()
+  noremap  <leader>i <Esc>:!npm i<CR>
+endfu
+
 augroup javascript
   autocmd Filetype javascript setlocal autoindent shiftwidth=2 tabstop=2 expandtab
   autocmd FileType javascript noremap <buffer> <leader>m <Esc>:!make<CR>
+  autocmd FileType javascript call JSSettings()
 augroup END
 
 autocmd BufNewFile,BufRead Jakefile set filetype=javascript
@@ -19,6 +24,7 @@ augroup json
   autocmd FileType json setlocal expandtab
   autocmd FileType json setlocal foldmethod=syntax
   autocmd FileType json setlocal formatprg=format-json
+  autocmd FileType json call JSSettings()
 augroup END
 
 autocmd BufNewFile,BufRead *.json set filetype=json
