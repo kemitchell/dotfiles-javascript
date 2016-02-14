@@ -1,1 +1,9 @@
-ghmyrepos | selecta | xargs hub clone
+#!/bin/bash
+CACHE="$HOME/.ghmyrepos"
+
+if [[ ! -f "$CACHE" || $* == *--refresh* ]]
+then
+  ghmyrepos > "$CACHE"
+fi
+
+cat "$CACHE" | selecta | xargs hub clone
