@@ -13,7 +13,7 @@ HERE
 
 echo ".travis.yml" >> .npmignore
 
-# grep "^\.npmignore$" .npmignore || echo ".npmignore" >> .npmignore
+grep "^\.npmignore$" .npmignore || echo ".npmignore" >> .npmignore
 
 git add .travis.yml .npmignore
 git commit -m "Configure Travis CI"

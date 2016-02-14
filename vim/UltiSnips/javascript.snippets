@@ -37,7 +37,10 @@ if ($1) {
 endsnippet
 
 snippet iferr
-if (error) { callback(error) }$0
+if (error) {
+	callback(error) }
+else {
+	$0 }
 endsnippet
 
 snippet eif
