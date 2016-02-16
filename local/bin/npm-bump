@@ -1,0 +1,26 @@
+#!/bin/zsh
+set -e
+usage="Usage: <package> [--dev]"
+package="$1"
+
+if [ -z "$package" ]
+then
+  echo "$usage"
+  exit 1
+fi
+
+if [[ $* == *--dev* ]]
+then
+  flag='-D'
+else
+  flag='-S'
+fi
+
+latest=$(npm info "$package" version)
+
+echo "Latest $package is $latest."
+
+npm install "$flag" "$package@$version"
+npm it
+git add package.json
+git commit -m "Use $package@$latest"
