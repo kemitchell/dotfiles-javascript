@@ -4,6 +4,6 @@ if [ -z "$1" ]; then
   echo "Usage: <x.y.z>"
 fi
 temp=`mktemp`
-curl -o "$temp" "https://nodejs.org/dist/v$1/node-v$1-linux-x64.tar.gz"
+curl --silent -o "$temp" "https://nodejs.org/dist/v$1/node-v$1-linux-x64.tar.gz"
 tar xzf "$temp" -C $PREFIX --strip-components=1
 rm -f "$temp"
