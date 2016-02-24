@@ -15,5 +15,5 @@ grep "^\.npmignore$" .npmignore || echo ".npmignore" >> .npmignore
 git add .travis.yml .npmignore
 git commit -m "Configure Travis CI"
 
-node-travis-enable
+travis-enable
 git push
