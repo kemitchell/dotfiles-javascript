@@ -1,19 +1,20 @@
 #!/bin/bash
 set -e
 
-cat > .travis.yml <<HERE
+YAML=.travis.yml
+
+cat > "$YAML" <<HERE
 ---
 language: "node_js"
-node_js: [ "4", "5" ]
+node_js: [ "4", "5", "stable" ]
 sudo: false
 HERE
 
-echo ".travis.yml" >> .npmignore
+git add .travis.yml
 
-grep "^\.npmignore$" .npmignore || echo ".npmignore" >> .npmignore
+if [ -f .npmignore ]; then
+  fgrep "$TRAVIS" .npmignore || echo "$TRAVIS" >> .npmignore
+  git add .npmignore
+fi
 
-git add .travis.yml .npmignore
 git commit -m "Configure Travis CI"
-
-travis-enable
-git push
