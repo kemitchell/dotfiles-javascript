@@ -23,4 +23,4 @@ echo "Latest $package is $latest."
 npm install "$flag" "$package@$version"
 npm it
 git add package.json
-git commit -m "Use $package@$latest"
+git commit -m "Upgrade $package to version $latest"
