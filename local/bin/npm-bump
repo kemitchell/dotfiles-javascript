@@ -23,4 +23,7 @@ echo "Latest $package is $latest."
 npm install "$flag" "$package@$version"
 npm it
 git add package.json
+if [ -f npm-shrinkwrap.json ]; then
+  git add npm-shrinkwrap.json
+fi
 git commit -m "Upgrade $package to version $latest"
