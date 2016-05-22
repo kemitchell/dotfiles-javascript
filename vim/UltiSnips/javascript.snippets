@@ -283,3 +283,13 @@ snippet filter "filter" w
 filter(function(${1:element}) {
 	$0 })
 endsnippet
+
+snippet concat "Concatenate Stream" !w
+var buffer = [ ]
+${1:request}
+	.on('data', function(chunk) {
+		buffer.push(chunk) })
+	.on('end', function() {
+		var ${2:body} = Buffer.concat(buffer)
+		$0 })
+endsnippet
