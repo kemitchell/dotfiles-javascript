@@ -1,5 +1,9 @@
 #!/bin/sh
 if [ -e package.json ]
 then
-	npm test
+  if [ -d node_modules ]; then
+    npm test
+  else
+    npm it
+  fi
 fi
