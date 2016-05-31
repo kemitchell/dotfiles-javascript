@@ -293,3 +293,11 @@ ${1:request}
 		var ${2:body} = Buffer.concat(buffer)
 		$0 })
 endsnippet
+
+snippet req "HTTP Request" !w
+http.request(
+	{ $1 })
+	.on('response', function(response) {
+		$0 })
+	.end($2)
+endsnippet
