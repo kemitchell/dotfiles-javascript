@@ -6,7 +6,7 @@ YAML=.travis.yml
 cat > "$YAML" <<HERE
 ---
 language: "node_js"
-node_js: [ "4", "5", "6", "stable" ]
+node_js: [ "4", "5", "6", "node" ]
 sudo: false
 HERE
 
