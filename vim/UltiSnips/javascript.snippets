@@ -273,61 +273,61 @@ endsnippet
 
 # Functional
 
-snippet map "map" w
-.map(function(${1:element}) {
+snippet map "map" i
+map(function(${1:element}) {
 	$0
 })
 endsnippet
 
-snippet filter "filter" w
-.filter(function(${1:element}) {
+snippet filter "filter" i
+filter(function(${1:element}) {
 	$0
 })
 endsnippet
 
-snippet findIndex "findIndex" w
-.findIndex(function(${1:element}) {
+snippet findIndex "findIndex" i
+findIndex(function(${1:element}) {
 	$0
 })
 endsnippet
 
-snippet find "find" w
-.find(function(${1:element}) {
+snippet find "find" i
+find(function(${1:element}) {
 	$0
 })
 endsnippet
 
-snippet lio "lastIndexOf" w
-.lastIndexOf(function(${1:element}) {
+snippet lio "lastIndexOf" i
+lastIndexOf(function(${1:element}) {
 	$0
 })
 endsnippet
 
-snippet every "every" w
-.every(function(${1:element}) {
+snippet every "every" i
+every(function(${1:element}) {
 	$0
 })
 endsnippet
 
-snippet any "any" w
-.any(function(${1:element}) {
+snippet any "any" i
+any(function(${1:element}) {
 	$0
 })
 endsnippet
 
-snippet fe "forEach" w
-.forEach(function(${1:element}${2}) {
+snippet fe "forEach" i
+forEach(function(${1:element}${2}) {
 	$0
 })
 endsnippet
 
-snippet fold "reduce" w
-.reduce(function (${1:mem}, ${2:element}$3) {
+snippet fold "reduce" i
+reduce(function (${1:mem}, ${2:element}$3) {
 	$0
 }, $4)
 endsnippet
 
-snippet concat "Concatenate Stream" !w
+snippet concat "Concatenate Stream" w
 var buffer = []
 ${1:request}
 	.on('data', function (chunk) {
@@ -365,4 +365,16 @@ snippet cv "choo view" w
 choo.view\`
 	$0
 \`
+endsnippet
+
+# DOM Events
+
+snippet ael "addEventListener()" i
+addEventListener('$1', function (${2:event}) {
+	$0
+})
+endsnippet
+
+snippet rel "removeEventListener()" i
+removeEventListener('$1', $0)
 endsnippet
