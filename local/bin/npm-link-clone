@@ -1,0 +1,77 @@
+#!/bin/bash
+
+DEP=$(realpath "$1")
+
+if [ -z "$DEP" ]; then
+  echo "Usage: npm-link-clone ./node_modules/<dependency>" >&2
+  exit 1
+fi
+
+if [ ! -d "$DEP" ] ; then
+  echo "No such directory $DEP" >&2
+  exit 1
+fi
+
+PACKAGE_JSON="$DEP/package.json"
+
+if [ ! -f "$PACKAGE_JSON" ] ; then
+  echo "Missing $PACKAGE_JSON" >&2
+  exit 1
+fi
+
+hash json 2>/dev/null || { echo "Installing json from npm." ; npm i -g json ; }
+
+NORMALIZED="$(mktemp)"
+
+node <<EOF | sed 's/git+https/https/' > "$NORMALIZED"
+normalize = require('normalize-package-data')
+data = require('$PACKAGE_JSON')
+normalize(data)
+console.log(JSON.stringify(data))
+EOF
+
+NAME=$(json name < "$NORMALIZED")
+
+if [ -z "$NAME" ]; then
+  echo "Could not find package name." >&2
+  exit 1
+fi
+
+CLONE="$HOME/$NAME"
+
+if [ -d "$CLONE" ]; then
+  echo "$CLONE already exists" >&2
+  exit 1
+fi
+
+VERSION=$(json version < "$NORMALIZED")
+
+if [ -z "$VERSION" ]; then
+  echo "Could not find package version." >&2
+  exit 1
+fi
+
+REMOTE=$(json repository.url < "$NORMALIZED")
+
+if [ -z "$REMOTE" ]; then
+  echo "Could not find Git remote." >&2
+  exit 1
+fi
+
+git clone "$REMOTE" "$CLONE" >/dev/null 2>&1 \
+|| echo "Could not clone ${REMOTE}." >&2
+
+(
+  cd "$CLONE"
+  git checkout "v$VERSION" \
+  || git checkout "$VERSION" \
+  || {
+    echo "Could not find tag for version ${VERSION}." >&2
+    exit 1
+  }
+  npm run prepublish
+)
+
+npm link "$CLONE"
+
+echo "$CLONE"
