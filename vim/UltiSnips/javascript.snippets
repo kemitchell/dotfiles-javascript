@@ -1,67 +1,96 @@
 # ECMA
 snippet proto
-$1.prototype.$2 = function($3) {
-	$0 }
+$1.prototype.$2 = function ($3) {
+	$0
+}
 endsnippet
 
 snippet fun "function" !w
-function $1($2) {
-	$0 }
+function $1 ($2) {
+	$0
+}
 endsnippet
 
 snippet f "function" !w
-function($1) {
-	$0 }
+function ($1) {
+	$0
+}
+endsnippet
+
+snippet F "function" !w
+($1) => $0
+endsnippet
+
+snippet FF "function" !w
+($1) => {
+	$0
+}
+endsnippet
+
+snippet con
+const $1 = $0
 endsnippet
 
 snippet vf "var = function(){}" !b
-var $1 = function($2) {
-	$0 }
+var $1 = function ($2) {
+	$0
+}
 endsnippet
 
 snippet iife "IIFE" !w
 (function($1) {
-	$0 })()
+	$0
+})()
 endsnippet
 
 snippet sf
 (function() {
 	$1
 	return function($2) {
-		$0 } })()
+		$0
+	}
+})()
 endsnippet
 
 snippet if
+if ($1) $0
+endsnippet
+
+snippet iff
 if ($1) {
-	$2 }$0
+	$0
+}
 endsnippet
 
 snippet iferr
-if (error) {
-	callback(error) }
-else {
-	$0 }
+if (error) callback(error)
+else $0
 endsnippet
 
 snippet eif
-else if ($1) {
-	$2 }$0
+else if ($1) $0
 endsnippet
 
 snippet e
-else {
-	$0 }
+else $0
 endsnippet
 
 snippet ife
 if ($1) {
-	$2 }
-else {
-	$0 }
+	$2
+} else {
+	$0
+}
 endsnippet
 
 snippet ter
-( $1 ? $2 : $3 )
+$1 ? $2 : $3
+endsnippet
+
+snippet terr
+$1
+	? $2
+	: $0
 endsnippet
 
 snippet ret "return" !b
@@ -69,28 +98,25 @@ return $0
 endsnippet
 
 snippet in "in expression" w
-( $1 in $2 )
+$1 in $0
 endsnippet
 
 snippet has "hasOwnProperty()" w
 hasOwnProperty($1)$0
 endsnippet
 
-snippet mapf "map(function() {})" w
-.map(function(${1:element}) {
-	$0 })
-endsnippet
-
 snippet for "for loop"
 var ${1:length} = ${2:source}.length
 for (var ${3:index} = 0; $3 < $1; $3++) {
 	var ${4:element} = $2[$3]
-	${VISUAL}$0 }
+	${VISUAL}$0
+}
 endsnippet
 
 snippet forin
 for (${1:name} in $2) {
-	$0 }
+	$0
+}
 endsnippet
 
 # JSON
@@ -145,14 +171,14 @@ endsnippet
 
 snippet cb "callback function"
 function(error, ${1:result}) {
-	$0 }
+	$0
+}
 endsnippet
 
 snippet mefun
-module.exports = $1
-
-function $1($2) {
-	$0 }
+module.exports = function $1 ($2) {
+	$0
+}
 endsnippet
 
 snippet me "module.exports ="
@@ -171,13 +197,15 @@ endsnippet
 # Event Emitters
 
 snippet on
-.on('${1:data}', function($2) {
-	$0 })
+.on('${1:data}', function ($2) {
+	$0
+})
 endsnippet
 
-snippet onc
-.once('${1:data}', function($2) {
-	$0 })
+snippet once
+.once('${1:data}', function ($2) {
+	$0
+})
 endsnippet
 
 snippet pi
@@ -198,106 +226,143 @@ snippet tape
 var tape = require('tape')
 endsnippet
 
+snippet sutie
+tape('$1', function(suite) {
+	suite.test('$2', function(test) {
+		$0
+	})
+})
+endsnippet
+
 snippet t
 test('$1', function(test) {
 	$0
-	test.end() })
+	test.end()
+})
 endsnippet
 
 snippet tok
 test.ok(
 	$1,
-	'$0')
+	'$0'
+)
 endsnippet
 
 snippet tnok
 test.notOk(
 	$1,
-	'$0')
+	'$0'
+)
 endsnippet
 
 snippet teq
 test.equal(
 	$1,
 	$2,
-	'$0')
-endsnippet
-
-snippet desc
-describe('$1', function() {
-	$0 })
-endsnippet
-
-snippet it
-it('$1', function($2) {
-	$0 })
-endsnippet
-
-snippet be
-before(function(${1:done}) {
-	$0 })
-endsnippet
-
-snippet bee
-beforeEach(function(${1:done}) {
-	$0 })
-endsnippet
-
-snippet af
-after(function(${1:done}) {
-	$0 })
-endsnippet
-
-snippet afe
-afterEach(function(${1:done}) {
-	$0 })
+	'$0'
+)
 endsnippet
 
 # HTTP
 
 snippet rr
 function(request, response) {
-	$0 }
+	$0
+}
 endsnippet
 
 # Functional
 
 snippet map "map" w
-map(function(${1:element}) {
-	$0 })
-endsnippet
-
-snippet fe "forEach" w
-forEach(function(${1:element}${2}) {
-	$0 })
-endsnippet
-
-snippet fold "reduce" w
-reduce(
-	function(${1:mem}, ${2:element}$3) {
-		$0 },
-	$4)
+.map(function(${1:element}) {
+	$0
+})
 endsnippet
 
 snippet filter "filter" w
-filter(function(${1:element}) {
-	$0 })
+.filter(function(${1:element}) {
+	$0
+})
+endsnippet
+
+snippet findIndex "findIndex" w
+.findIndex(function(${1:element}) {
+	$0
+})
+endsnippet
+
+snippet find "find" w
+.find(function(${1:element}) {
+	$0
+})
+endsnippet
+
+snippet lio "lastIndexOf" w
+.lastIndexOf(function(${1:element}) {
+	$0
+})
+endsnippet
+
+snippet every "every" w
+.every(function(${1:element}) {
+	$0
+})
+endsnippet
+
+snippet any "any" w
+.any(function(${1:element}) {
+	$0
+})
+endsnippet
+
+snippet fe "forEach" w
+.forEach(function(${1:element}${2}) {
+	$0
+})
+endsnippet
+
+snippet fold "reduce" w
+.reduce(function (${1:mem}, ${2:element}$3) {
+	$0
+}, $4)
 endsnippet
 
 snippet concat "Concatenate Stream" !w
-var buffer = [ ]
+var buffer = []
 ${1:request}
-	.on('data', function(chunk) {
-		buffer.push(chunk) })
-	.on('end', function() {
+	.on('data', function (chunk) {
+		buffer.push(chunk)
+	})
+	.on('end', function () {
 		var ${2:body} = Buffer.concat(buffer)
-		$0 })
+		$0
+	})
 endsnippet
 
 snippet req "HTTP Request" !w
-http.request(
-	{ $1 })
+http.request({ $1 })
 	.on('response', function(response) {
-		$0 })
+		$0
+	})
 	.end($2)
+endsnippet
+
+# Literals
+
+snippet obj
+{$1:$0}
+endsnippet
+
+snippet arr
+[$0]
+endsnippet
+
+snippet inc
+includes($0)
+endsnippet
+
+snippet cv "choo view" w
+choo.view\`
+	$0
+\`
 endsnippet
