@@ -59,7 +59,10 @@ if [ -z "$REMOTE" ]; then
 fi
 
 git clone "$REMOTE" "$CLONE" >/dev/null 2>&1 \
-|| echo "Could not clone ${REMOTE}." >&2
+|| {
+  echo "Could not clone ${REMOTE}." >&2
+  exit 1
+}
 
 (
   cd "$CLONE"
