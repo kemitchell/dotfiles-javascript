@@ -31,22 +31,22 @@ snippet con
 const $1 = $0
 endsnippet
 
-snippet vf "var = function(){}" !b
+snippet vf "var = function (){}" !b
 var $1 = function ($2) {
 	$0
 }
 endsnippet
 
 snippet iife "IIFE" !w
-(function($1) {
+(function ($1) {
 	$0
 })()
 endsnippet
 
 snippet sf
-(function() {
+(function () {
 	$1
-	return function($2) {
+	return function ($2) {
 		$0
 	}
 })()
@@ -170,7 +170,7 @@ var $1 = require('`!p snip.rv = re.sub(r'([A-Z])', r'-\1', t[1]).lower()`')$0
 endsnippet
 
 snippet cb "callback function"
-function(error, ${1:result}) {
+function (error, ${1:result}) {
 	$0
 }
 endsnippet
@@ -227,15 +227,15 @@ var tape = require('tape')
 endsnippet
 
 snippet sutie
-tape('$1', function(suite) {
-	suite.test('$2', function(test) {
+tape('$1', function (suite) {
+	suite.test('$2', function (test) {
 		$0
 	})
 })
 endsnippet
 
 snippet t
-test('$1', function(test) {
+test('$1', function (test) {
 	$0
 	test.end()
 })
@@ -266,7 +266,7 @@ endsnippet
 # HTTP
 
 snippet rr
-function(request, response) {
+function (request, response) {
 	$0
 }
 endsnippet
@@ -274,49 +274,55 @@ endsnippet
 # Functional
 
 snippet map "map" i
-map(function(${1:element}) {
+map(function (${1:element}) {
 	$0
 })
 endsnippet
 
 snippet filter "filter" i
-filter(function(${1:element}) {
+filter(function (${1:element}) {
 	$0
 })
 endsnippet
 
 snippet findIndex "findIndex" i
-findIndex(function(${1:element}) {
+findIndex(function (${1:element}) {
 	$0
 })
 endsnippet
 
 snippet find "find" i
-find(function(${1:element}) {
+find(function (${1:element}) {
 	$0
 })
 endsnippet
 
 snippet lio "lastIndexOf" i
-lastIndexOf(function(${1:element}) {
+lastIndexOf(function (${1:element}) {
 	$0
 })
 endsnippet
 
 snippet every "every" i
-every(function(${1:element}) {
+every(function (${1:element}) {
+	$0
+})
+endsnippet
+
+snippet some "some" i
+some(function (${1:element}) {
 	$0
 })
 endsnippet
 
 snippet any "any" i
-any(function(${1:element}) {
+any(function (${1:element}) {
 	$0
 })
 endsnippet
 
 snippet fe "forEach" i
-forEach(function(${1:element}${2}) {
+forEach(function (${1:element}${2}) {
 	$0
 })
 endsnippet
@@ -341,7 +347,7 @@ endsnippet
 
 snippet req "HTTP Request" !w
 http.request({ $1 })
-	.on('response', function(response) {
+	.on('response', function (response) {
 		$0
 	})
 	.end($2)
