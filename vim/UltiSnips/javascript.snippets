@@ -339,7 +339,10 @@ ${1:request}
 	.on('data', function (chunk) {
 		buffer.push(chunk)
 	})
-	.on('end', function () {
+	.once('error', function(error) {
+		$0
+	})
+	.once('end', function () {
 		var ${2:body} = Buffer.concat(buffer)
 		$0
 	})
@@ -347,7 +350,7 @@ endsnippet
 
 snippet req "HTTP Request" !w
 http.request({ $1 })
-	.on('response', function (response) {
+	.once('response', function (response) {
 		$0
 	})
 	.end($2)
