@@ -196,23 +196,23 @@ endsnippet
 
 # Event Emitters
 
-snippet on
-.on('${1:data}', function ($2) {
+snippet on "on" w
+on('${1:data}', function ($2) {
 	$0
 })
 endsnippet
 
-snippet once
-.once('${1:data}', function ($2) {
+snippet once "once" w
+once('${1:data}', function ($2) {
 	$0
 })
 endsnippet
 
-snippet pi
-.pipe($0)
+snippet pi "pipe" w
+pipe($0)
 endsnippet
 
-snippet emit
+snippet emit "emit" w
 emit('${1:error}', '$2')
 endsnippet
 
@@ -226,7 +226,7 @@ snippet tape
 var tape = require('tape')
 endsnippet
 
-snippet sutie
+snippet suite
 tape('$1', function (suite) {
 	suite.test('$2', function (test) {
 		$0
@@ -265,7 +265,7 @@ endsnippet
 
 # HTTP
 
-snippet rr
+snippet rr "HTTP handler" w
 function (request, response) {
 	$0
 }
@@ -273,61 +273,61 @@ endsnippet
 
 # Functional
 
-snippet map "map" i
+snippet map "map" w
 map(function (${1:element}) {
 	$0
 })
 endsnippet
 
-snippet filter "filter" i
+snippet filter "filter" e
 filter(function (${1:element}) {
 	$0
 })
 endsnippet
 
-snippet findIndex "findIndex" i
+snippet fix "findIndex" w
 findIndex(function (${1:element}) {
 	$0
 })
 endsnippet
 
-snippet find "find" i
+snippet fi "find" w
 find(function (${1:element}) {
 	$0
 })
 endsnippet
 
-snippet lio "lastIndexOf" i
+snippet lio "lastIndexOf" w
 lastIndexOf(function (${1:element}) {
 	$0
 })
 endsnippet
 
-snippet every "every" i
+snippet every "every" w
 every(function (${1:element}) {
 	$0
 })
 endsnippet
 
-snippet some "some" i
+snippet some "some" w
 some(function (${1:element}) {
 	$0
 })
 endsnippet
 
-snippet any "any" i
+snippet any "any" w
 any(function (${1:element}) {
 	$0
 })
 endsnippet
 
-snippet fe "forEach" i
+snippet fe "forEach" w
 forEach(function (${1:element}${2}) {
 	$0
 })
 endsnippet
 
-snippet fold "reduce" i
+snippet fold "reduce" w
 reduce(function (${1:mem}, ${2:element}$3) {
 	$0
 }, $4)
@@ -336,37 +336,35 @@ endsnippet
 snippet concat "Concatenate Stream" w
 var buffer = []
 ${1:request}
-	.on('data', function (chunk) {
-		buffer.push(chunk)
-	})
-	.once('error', function(error) {
-		$0
-	})
-	.once('end', function () {
-		var ${2:body} = Buffer.concat(buffer)
-		$0
-	})
+.on('data', function (chunk) { buffer.push(chunk) })
+.once('error', function(error) {
+	$0
+})
+.once('end', function () {
+	var ${2:body} = Buffer.concat(buffer)
+	$0
+})
 endsnippet
 
-snippet req "HTTP Request" !w
+snippet req "HTTP Request" w
 http.request({ $1 })
-	.once('response', function (response) {
-		$0
-	})
-	.end($2)
+.once('response', function (response) {
+	$0
+})
+.end($2)
 endsnippet
 
 # Literals
 
-snippet obj
+snippet obj "object" w
 {$1:$0}
 endsnippet
 
-snippet arr
+snippet arr "array" w
 [$0]
 endsnippet
 
-snippet inc
+snippet inc "includes" w
 includes($0)
 endsnippet
 
@@ -378,13 +376,13 @@ endsnippet
 
 # DOM Events
 
-snippet ael "addEventListener()" i
+snippet ael "addEventListener()" w
 addEventListener('$1', function (${2:event}) {
 	$0
 })
 endsnippet
 
-snippet rel "removeEventListener()" i
+snippet rel "removeEventListener()" w
 removeEventListener('$1', $0)
 endsnippet
 
