@@ -3,10 +3,13 @@ set -e
 
 YAML=.travis.yml
 
+json scripts.lint < package.json && LINT=', "npm run lint"' || LINT=''
+
 cat > "$YAML" <<HERE
 ---
 language: "node_js"
 node_js: [ "4", "5", "6", "node" ]
+script: [ "npm test"$LINT ]
 sudo: false
 HERE
 
