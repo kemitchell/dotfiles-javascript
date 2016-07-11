@@ -135,6 +135,10 @@ snippet cl
 console.log($0)
 endsnippet
 
+snippet cls
+console.log('$0')
+endsnippet
+
 snippet clv
 console.log('$1', $1)
 endsnippet
@@ -347,7 +351,7 @@ ${1:request}
 endsnippet
 
 snippet req "HTTP Request" w
-http.request({ $1 })
+http.request({$1})
 .once('response', function (response) {
 	$0
 })
