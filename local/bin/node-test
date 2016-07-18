@@ -2,8 +2,8 @@
 if [ -e package.json ]
 then
   if [ -d node_modules ]; then
-    npm test
+    npm test | tee test.log
   else
-    npm it
+    npm it | tee test.log
   fi
 fi

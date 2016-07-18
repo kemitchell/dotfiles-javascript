@@ -24,6 +24,7 @@ npm install "$flag" "$package@$version"
 npm it
 git add package.json
 if [ -f npm-shrinkwrap.json ]; then
+  npm shrinkwrap
   git add npm-shrinkwrap.json
 fi
-git commit -m "Upgrade $package to version $latest"
+git commit -m "Upgrade to $package $latest"
