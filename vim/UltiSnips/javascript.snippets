@@ -53,34 +53,37 @@ snippet sf
 endsnippet
 
 snippet if
-if ($1) $0
+if ($1) {
+	$2
+}$0
 endsnippet
 
-snippet iff
-if ($1) {
+snippet iferr
+if (error) {
+	callback(error)
+} else {
 	$0
 }
 endsnippet
 
-snippet iferr
-if (error) callback(error)
-else $0
-endsnippet
-
 snippet eif
-else if ($1) $0
+else if ($1) {
+	$2
+}$0
 endsnippet
 
 snippet e
-else $0
+else {
+	$1
+}$0
 endsnippet
 
 snippet ife
 if ($1) {
 	$2
 } else {
-	$0
-}
+	$3
+}$0
 endsnippet
 
 snippet ter
@@ -238,7 +241,7 @@ tape('$1', function (suite) {
 })
 endsnippet
 
-snippet t
+snippet test
 test('$1', function (test) {
 	$0
 	test.end()
@@ -261,8 +264,7 @@ endsnippet
 
 snippet teq
 test.equal(
-	$1,
-	$2,
+	$1, $2,
 	'$0'
 )
 endsnippet
@@ -340,7 +342,9 @@ endsnippet
 snippet concat "Concatenate Stream" w
 var buffer = []
 ${1:request}
-.on('data', function (chunk) { buffer.push(chunk) })
+.on('data', function (chunk) {
+	buffer.push(chunk)
+})
 .once('error', function (error) {
 	$0
 })
@@ -360,20 +364,32 @@ endsnippet
 
 # Literals
 
-snippet obj "object" w
-{$1:$0}
+snippet o "object" w
+{$0}
 endsnippet
 
-snippet arr "array" w
+snippet oo "object" w
+{
+	$0
+}
+endsnippet
+
+snippet a "array" w
 [$0]
+endsnippet
+
+snippet aa "array" w
+[
+	$0
+]
 endsnippet
 
 snippet inc "includes" w
 includes($0)
 endsnippet
 
-snippet cv "choo view" w
-choo.view\`
+snippet html "choo view" w
+html\`
 	$0
 \`
 endsnippet
@@ -398,4 +414,24 @@ endsnippet
 
 snippet keys "Object.keys" w
 Object.keys($1)$0
+endsnippet
+
+snippet ignoreif
+/* istanbul ignore if */
+endsnippet
+
+snippet ignoreelse
+/* istanbul ignore else */
+endsnippet
+
+snippet ignorenext
+/* istanbul ignore next */
+endsnippet
+
+snippet args
+var args = Array.prototype.slice.call(arguments)
+endsnippet
+
+snippet ts "toString()" w
+toString()
 endsnippet
