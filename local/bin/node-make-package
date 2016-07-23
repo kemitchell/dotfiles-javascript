@@ -6,8 +6,14 @@ var data = {
   name: base,
   version: '0.0.0',
   description: '',
-  author: 'Kyle E. Mitchell <kyle@kemitchell.com> (https://kemitchell.com/)',
+  author: (
+    'Kyle E. Mitchell ' +
+    '<kyle@kemitchell.com> ' +
+    '(https://kemitchell.com/)'
+  ),
   repository: 'kemitchell/' + base + '.js',
-  license: 'MIT' }
+  files: ['index.js'],
+  license: 'MIT'
+}
 
 console.log(JSON.stringify(data, null, 2))
