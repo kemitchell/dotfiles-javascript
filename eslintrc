@@ -1,4 +1,5 @@
 { "extends": "standard",
+  "plugins": [ "markdown" ],
   "rules": {
     "max-len": [
       2,

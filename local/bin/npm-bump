@@ -9,7 +9,9 @@ then
   exit 1
 fi
 
-if [[ $* == *--dev* ]]
+devDep=$(cat package.json | json "devDependencies.$package")
+
+if [ -z "$devDep" ]
 then
   flag='-D'
 else
@@ -17,14 +19,15 @@ else
 fi
 
 latest=$(npm info "$package" version)
+range="^$latest"
 
 echo "Latest $package is $latest."
 
-npm install "$flag" "$package@$version"
+npm install "$flag" "$package@$range"
 npm it
 git add package.json
 if [ -f npm-shrinkwrap.json ]; then
   npm shrinkwrap
   git add npm-shrinkwrap.json
 fi
-git commit -m "Upgrade to $package $latest"
+git commit -m "$package@^$latest"

@@ -3,5 +3,11 @@ npm i --save-dev defence-cli replace-require-self
 if [ ! -f README.md ]; then
 	echo "\`\`\`javascript\nvar assert = require('assert')\n\`\`\`" > README.md
 fi
-json -I -f package.json -e 'this.scripts.test="defence README.md | replace-require-self | node"' || \
-json -I -f package.json -e 'this.scripts={test:"defence README.md | replace-require-self | node"}'
+
+scripts=$(cat package.json | json scripts)
+
+if [ -z "$scripts" ]; then
+  json -I -f package.json -e 'this.scripts={}'
+fi
+
+json -I -f package.json -e 'this.scripts={test:"defence -i javascript README.md | replace-require-self | node'
