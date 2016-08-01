@@ -435,3 +435,9 @@ endsnippet
 snippet ts "toString()" w
 toString()
 endsnippet
+
+snippet ifnthis "if not instanceof" w
+if (!(this instanceof $1)) {
+	return new $1($2)
+}$0
+endsnippet
