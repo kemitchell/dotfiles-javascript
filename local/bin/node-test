@@ -1,7 +1,9 @@
 #!/bin/sh
 if [ -e package.json ]
 then
-  if [ -d node_modules ]; then
+  if [ -f test.js ]; then
+    node test.js | tee test.log
+  elif [ -d node_modules ]; then
     npm test | tee test.log
   else
     npm it | tee test.log

@@ -90,10 +90,10 @@ snippet ter
 $1 ? $2 : $3
 endsnippet
 
-snippet terr
+snippet Ter
 $1
-	? $2
-	: $0
+? $2
+: $0
 endsnippet
 
 snippet ret "return" !b
@@ -269,6 +269,10 @@ test.equal(
 )
 endsnippet
 
+snippet terr
+test.ifError(error, 'no error')
+endsnippet
+
 # HTTP
 
 snippet rr "HTTP handler" w
@@ -440,4 +444,24 @@ snippet ifnthis "if not instanceof" w
 if (!(this instanceof $1)) {
 	return new $1($2)
 }$0
+endsnippet
+
+snippet exc
+var $1 = require('$2').$1
+var inherits = require('util').inherits
+
+module.exports = $3
+
+function $3 (options) {
+	if (!(this instanceof $3)) {
+		return new $3(options)
+	}
+
+	$1.call(this)
+	$0
+}
+
+inherits($3, $1)
+
+var prototype = $3.prototype
 endsnippet
