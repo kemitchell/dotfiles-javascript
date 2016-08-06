@@ -13,6 +13,7 @@ augroup javascript
   autocmd FileType javascript noremap <buffer> <leader>m <Esc>:!make<CR>
   autocmd FileType javascript call JSSettings()
   autocmd FileType javascript noremap <buffer> <leader>c <Esc>:!npm run coverage<CR>
+  autocmd FileType javascript set spell
 augroup END
 
 autocmd BufNewFile,BufRead Jakefile set filetype=javascript
