@@ -12,6 +12,7 @@ augroup javascript
   autocmd Filetype javascript setlocal autoindent shiftwidth=2 tabstop=2 expandtab textwidth=72
   autocmd FileType javascript noremap <buffer> <leader>m <Esc>:!make<CR>
   autocmd FileType javascript call JSSettings()
+  autocmd FileType javascript noremap <buffer> <leader>c <Esc>:!npm run coverage<CR>
 augroup END
 
 autocmd BufNewFile,BufRead Jakefile set filetype=javascript
