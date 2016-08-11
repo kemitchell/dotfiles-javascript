@@ -5,6 +5,7 @@ init-author-name=Kyle E. Mitchell
 init-author-url=https://kemitchell.com/
 init-license=Apache-2.0
 init-version=0.0.0
+spinner=false
 loglevel=error
 tag-version-prefix=v
 color=false
