@@ -1,0 +1,6 @@
+#!/bin/bash
+if [ -z "$1" ] || [ -z "$2" ]; then
+  echo "Usage: <name>" > /dev/stderr
+  exit 1
+fi
+wget -c "https://registry.npmjs.org/${1}"
