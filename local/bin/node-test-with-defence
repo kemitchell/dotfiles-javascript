@@ -10,4 +10,4 @@ if [ -z "$scripts" ]; then
   json -I -f package.json -e 'this.scripts={}'
 fi
 
-json -I -f package.json -e 'this.scripts={test:"defence -i javascript README.md | replace-require-self | node'
+json -I -f package.json -e 'this.scripts={test:"defence -i javascript README.md | replace-require-self | node"}'
