@@ -229,10 +229,6 @@ snippet ass
 var assert = require('assert')
 endsnippet
 
-snippet tape
-var tape = require('tape')
-endsnippet
-
 snippet suite
 tape('$1', function (suite) {
 	suite.test('$2', function (test) {
@@ -242,7 +238,7 @@ tape('$1', function (suite) {
 endsnippet
 
 snippet test
-test('$1', function (test) {
+tape('$1', function (test) {
 	$0
 	test.end()
 })
