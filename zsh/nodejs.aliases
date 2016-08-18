@@ -1,2 +1,3 @@
 alias nn='node'
 alias n='npm'
+alias nic='npm install --cache-min 999999'
