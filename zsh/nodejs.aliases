@@ -1,3 +1,4 @@
 alias nn='node'
 alias n='npm'
+alias ni='npm install --ignore-scripts'
 alias nic='npm install --cache-min 999999'
