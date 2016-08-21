@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+require 'yaml'
+data = YAML.load_file '.travis.yml'
+if data['script'] then
+  data['script'].push 'npm run lint'
+else
+  data['script'] = ['npm test', 'npm run lint']
+end
+File.write '.travis.yml', data.to_yaml
