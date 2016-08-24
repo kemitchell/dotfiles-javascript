@@ -13,9 +13,9 @@ devDep=$(cat package.json | json "devDependencies.$package")
 
 if [ -z "$devDep" ]
 then
-  flag='-D'
-else
   flag='-S'
+else
+  flag='-D'
 fi
 
 latest=$(npm info "$package" version)
