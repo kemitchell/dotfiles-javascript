@@ -11,4 +11,4 @@ loglevel=error
 tag-version-prefix=v
 color=false
 save=true
-parseable=true
+#parseable=true
