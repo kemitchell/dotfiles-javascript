@@ -1,6 +1,6 @@
 #!/bin/zsh
 set -e
-usage="Usage: <package> [--dev]"
+usage="Usage: <package>"
 package="$1"
 
 if [ -z "$package" ]
@@ -9,13 +9,20 @@ then
   exit 1
 fi
 
-devDep=$(cat package.json | json "devDependencies.$package")
+regularDep=$(cat package.json | json "dependencies['$package']")
+devDep=$(cat package.json | json "devDependencies['$package']")
 
-if [ -z "$devDep" ]
-then
-  flag='-S'
-else
+if [ "$devDep" ]; then
+  echo "$package is a devDependency."
   flag='-D'
+else
+  if [ "$regularDep" ]; then
+    echo "$package is a dependency."
+    flag='-S'
+  else
+    echo "$package is not a depencency!"
+    exit 1
+  fi
 fi
 
 latest=$(npm info "$package" version)
@@ -24,7 +31,7 @@ range="^$latest"
 echo "Latest $package is $latest."
 
 npm install "$flag" "$package@$range"
-npm it
+#npm it
 git add package.json
 if [ -f npm-shrinkwrap.json ]; then
   npm shrinkwrap
