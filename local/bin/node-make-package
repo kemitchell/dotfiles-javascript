@@ -2,6 +2,10 @@
 var path = require('path')
 var base = path.basename(process.cwd())
 
+if (/\.js$/.test(base)) {
+  base = base.slice(0, -3)
+}
+
 var data = {
   name: base,
   version: '0.0.0',

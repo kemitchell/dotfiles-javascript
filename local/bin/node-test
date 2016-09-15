@@ -1,10 +1,10 @@
 #!/bin/sh
 if [ -e package.json ]; then
   if [ -f test.js ]; then
-    node test.js | tee test.log
+    node test.js 2>&1 | tee test.log
   elif [ -d node_modules ]; then
-    npm test | tee test.log
+    npm test 2>&1 | tee test.log
   else
-    npm it | tee test.log
+    npm it 2>&1 | tee test.log
   fi
 fi
