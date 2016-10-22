@@ -1,11 +1,11 @@
 #!/bin/zsh
-npm install --save-dev standard --cache-min 999999
+npm install --save-dev standard standard-markdown --cache-min 999999
 
 scripts=$(cat package.json | json scripts)
 if [ -z "$scripts" ]; then
   json -I -f package.json -e 'this.scripts={}'
 fi
-json -I -f package.json -e 'this.scripts.lint="standard"'
+json -I -f package.json -e 'this.scripts.lint="standard && standard-markdown"'
 
 if [ -f .travis.yml ]; then
   node-travis-run-lint
