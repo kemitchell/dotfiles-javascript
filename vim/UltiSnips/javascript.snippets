@@ -461,3 +461,11 @@ inherits($3, $1)
 
 var prototype = $3.prototype
 endsnippet
+
+# Promises
+
+snippet then "then" w
+then(function (${1:result}) {
+	$0
+})
+endsnippet
