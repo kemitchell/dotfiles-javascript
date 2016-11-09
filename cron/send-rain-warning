@@ -5,4 +5,7 @@ if [ ! hash will-it-rain &>/dev/null ]; then
   npm i -g kemitchell/will-it-rain.js
 fi
 
-will-it-rain && mutt -s "Rain Today" "kyle@kemitchell.com" <<< "NOAA forecasts rain today."
+will-it-rain
+if [ $? = 0 ]; then
+  mutt -s "Rain Today" "kyle@kemitchell.com" <<< "NOAA forecasts rain today."
+fi
