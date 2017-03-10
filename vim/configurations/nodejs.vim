@@ -5,16 +5,16 @@ let g:syntastic_json_checkers = ['jsonlint']
 let g:syntastic_aggregate_errors = 1
 
 fu! JSSettings()
-  noremap  <leader>i <Esc>:!npm i<CR>
+  nnoremap  <leader>i <Esc>:!npm i<CR>
 endfu
 
 augroup javascript
   autocmd Filetype javascript setlocal autoindent shiftwidth=2 tabstop=2 expandtab textwidth=72
-  autocmd FileType javascript noremap <buffer> <leader>m <Esc>:!make<CR>
+  autocmd FileType javascript nnoremap <buffer> <leader>m <Esc>:!make<CR>
   autocmd FileType javascript call JSSettings()
-  autocmd FileType javascript noremap <buffer> <leader>c <Esc>:!npm run coverage<CR>
-  autocmd FileType javascript noremap <buffer> <leader>l <Esc>:!npm run lint<CR>
-  autocmd FileType javascript set spell
+  autocmd FileType javascript nnoremap <buffer> <leader>c <Esc>:!npm run coverage<CR>
+  autocmd FileType javascript nnoremap <buffer> <leader>l <Esc>:!npm run lint<CR>
+  autocmd FileType javascript setlocal spell
 augroup END
 
 autocmd BufNewFile,BufRead Jakefile set filetype=javascript
@@ -47,5 +47,5 @@ augroup END
 autocmd BufNewFile,BufRead *.pegjs set filetype=pegjs
 
 augroup markdown
-  autocmd FileType markdown noremap <buffer> <leader>t <Esc>:!node-test<CR>
+  autocmd FileType markdown nnoremap <buffer> <leader>t <Esc>:!node-test<CR>
 augroup END
