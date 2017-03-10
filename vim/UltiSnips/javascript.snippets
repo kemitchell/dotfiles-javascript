@@ -66,6 +66,14 @@ if (error) {
 }
 endsnippet
 
+snippet iece
+if (error) return ${1:callback}(error)
+endsnippet
+
+snippet oncee
+.once('error', ${1:callback})
+endsnippet
+
 snippet eif
 else if ($1) {
 	$2
@@ -173,13 +181,17 @@ var $1 = require('$0')
 endsnippet
 
 snippet re "mirrored require statement" !b
-var $1 = require('`!p snip.rv = re.sub(r'([A-Z])', r'-\1', t[1]).lower()`')$0
+var $1 = require('`!p snip.rv = re.sub(r'(.)([A-Z])', r'\1-\2', t[1]).lower()`')$0
 endsnippet
 
 snippet cb "callback function"
 function (error, ${1:result}) {
 	$0
 }
+endsnippet
+
+snippet bind
+$1.bind(${2:null}, $0)
 endsnippet
 
 snippet mefun
