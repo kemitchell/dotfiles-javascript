@@ -16,5 +16,5 @@ if [ "$STABLE_VERSION_TAG" = "${INSTALLED_VERSION%%\\n}" ]; then
 
 # Otherwise, install latest Node.js from Git.
 else
-  node-install-runtime "$STABLE_VERSION_TAG"
+  install-node-binary "$STABLE_VERSION_TAG"
 fi
