@@ -1,1 +1,1 @@
-curl http://semver.io/node/stable 2>/dev/null
+curl -s "https://nodejs.org/en/download/" | grep -oP "Latest LTS Version: <strong>v\K\d+.\d+.\d+"
