@@ -25,6 +25,7 @@ cat <<PACKAGES | xargs npm --global install
 	lispyscript
 	mustache-vars
 	node-eval-json
+  np
 	semver
 	standard
 	tape
