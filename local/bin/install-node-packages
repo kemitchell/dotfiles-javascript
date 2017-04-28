@@ -11,7 +11,10 @@ cat <<PACKAGES | xargs npm --global install
 	difflet
 	dupsh
 	eslint
+	eslint-config-standard
+  eslint-plugin-import
 	eslint-plugin-markdown
+  eslint-plugin-node
 	exorcist
 	faucet
 	fixpack
