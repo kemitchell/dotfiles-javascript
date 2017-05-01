@@ -1,0 +1,12 @@
+#!/bin/bash
+set -e
+if [[ -z "$1" || -z "$2" ]]; then
+  echo "Usage: <owner/repo> <substring>"
+  exit 1
+fi
+TMP=$(mktemp)
+function cleanup { rm -f "$TMP"; }
+trap cleanup EXIT
+URL=$(get-latest-github-release-url "$1" "$2")
+curl --silent --location "$URL" -o "$TMP"
+sudo dpkg -i "$TMP"
