@@ -27,6 +27,7 @@ cat <<PACKAGES | xargs npm --global install
 	lispy-json
 	lispyscript
 	mustache-vars
+  ndjson-cli
 	node-eval-json
   np
 	semver
