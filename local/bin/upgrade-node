@@ -2,7 +2,8 @@
 
 # Fetch the latest stable version from semver.io, prepending "v" to make
 # the current stable version Git tag name.
-STABLE_VERSION_TAG=v$(node-current-version)
+STABLE_VERSION=$(node-current-version)
+STABLE_VERSION_TAG="v$STABLE_VERSION"
 echo "Current Stable Node.js is $STABLE_VERSION_TAG"
 
 # If Node.js is installed, read the installed version number.
@@ -11,10 +12,9 @@ INSTALLED_VERSION=$(node --version || echo "NONE")
 # If the installed version is the current stable version, declare
 # victory and quit.
 if [ "$STABLE_VERSION_TAG" = "${INSTALLED_VERSION%%\\n}" ]; then
-	echo "Node.js version $STABLE_VERSION_TAG is already installed"
+	echo "Node.js version $STABLE_VERSION is already installed"
 	exit 0
-
 # Otherwise, install latest Node.js from Git.
 else
-  install-node-binary "$STABLE_VERSION_TAG"
+  install-node-binary "$STABLE_VERSION"
 fi
