@@ -33,4 +33,5 @@ cat <<PACKAGES | xargs npm --global install
 	semver
 	standard
 	tape
+  wtfnode
 PACKAGES
