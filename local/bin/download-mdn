@@ -1,0 +1,10 @@
+#!/bin/bash
+URL="https://developer.mozilla.org/media/developer.mozilla.org.tar.gz"
+TMP=$(mktemp)
+curl -o "$TMP" "$URL"
+rm -rf "$HOME/.mdn"
+mkdir -p "$HOME/.mdn"
+mv "$TMP" "$HOME/.mdn/data.tar.gz"
+cd "$HOME/.mdn"
+unp "data.tar.gz"
+rm -f "data.tar.gz"
