@@ -17,6 +17,7 @@ curl \
   "private": false,
   "has_issues": true,
   "has_wiki": false,
+  "has_projects": false,
   "has_downloads": true
 }
 JSON
