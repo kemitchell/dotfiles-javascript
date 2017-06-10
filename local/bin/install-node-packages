@@ -14,7 +14,6 @@ cat <<PACKAGES | xargs npm --global install
 	eslint-config-standard
   eslint-plugin-import
 	eslint-plugin-markdown
-  eslint-plugin-node
 	exorcist
 	faucet
 	fixpack
@@ -27,11 +26,13 @@ cat <<PACKAGES | xargs npm --global install
 	lispy-json
 	lispyscript
 	mustache-vars
-  ndjson-cli
 	node-eval-json
-  np
 	semver
 	standard
 	tape
+  eslint-plugin-node
+  ndjson-cli
+  np
+  npx
   wtfnode
 PACKAGES
