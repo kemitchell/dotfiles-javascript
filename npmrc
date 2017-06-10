@@ -10,5 +10,3 @@ progress=false
 loglevel=error
 tag-version-prefix=v
 color=false
-#save=true
-#parseable=true
