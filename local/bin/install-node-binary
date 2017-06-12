@@ -6,7 +6,6 @@ fi
 temp=`mktemp`
 curl --silent -o "$temp" "https://nodejs.org/dist/v${1}/node-v${1}-linux-x64.tar.xz"
 tar xpvf "$temp" -C $PREFIX --strip-components=1
-npm i -g npm
 npm rebuild
 function cleanup {
   rm -f "$temp"

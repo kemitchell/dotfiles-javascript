@@ -19,6 +19,7 @@ cat <<PACKAGES | xargs npm --global --build-from-source install
   faucet
   fixpack
   git-latest-semver-tag
+  gh
   http-server
   json
   jsonlint
