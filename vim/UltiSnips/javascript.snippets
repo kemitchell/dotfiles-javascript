@@ -480,3 +480,22 @@ then(function (${1:result}) {
 	$0
 })
 endsnippet
+
+
+# DOM
+
+snippet dce "createElement" w
+document.createElement('$1')$0
+endsnippet
+
+snippet dct "createTextNode" w
+document.createTextNode($0)
+endsnippet
+
+snippet ac "appendChild" w
+appendChild($0)
+endsnippet
+
+snippet atn "append text node" w
+appendChild(document.createTextNode($0))
+endsnippet
