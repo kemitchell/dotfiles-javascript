@@ -38,6 +38,8 @@ if [ -f npm-shrinkwrap.json ]; then
   git add npm-shrinkwrap.json
 fi
 if [ -f package-lock.json ]; then
-  git add package-lock.json
+  if git ls-files | fgrep package-lock.json; then
+    git add package-lock.json
+  fi
 fi
 git commit -m "$package@^$latest"
