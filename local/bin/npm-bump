@@ -37,7 +37,7 @@ if [ -f npm-shrinkwrap.json ]; then
   npm shrinkwrap
   git add npm-shrinkwrap.json
 fi
-if [ -f package-lock.json ]; then
+if (git ls-files | fgrep package-lock.json > /dev/null) && [ -f package-lock.json ]; then
   if git ls-files | fgrep package-lock.json; then
     git add package-lock.json
   fi
