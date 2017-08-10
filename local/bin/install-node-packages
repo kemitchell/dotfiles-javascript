@@ -18,9 +18,10 @@ cat <<PACKAGES | xargs npm --global --build-from-source install
   exorcist
   faucet
   fixpack
-  git-latest-semver-tag
   gh
+  git-latest-semver-tag
   http-server
+  istanbul
   json
   jsonlint
   licensee
@@ -34,6 +35,8 @@ cat <<PACKAGES | xargs npm --global --build-from-source install
   np
   npx
   pino
+  prettier
+  prettier-standard
   scuttlebot
   semver
   standard
