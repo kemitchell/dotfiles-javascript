@@ -351,16 +351,16 @@ reduce(function (${1:mem}, ${2:element}$3) {
 endsnippet
 
 snippet concat "Concatenate Stream" w
-var buffer = []
+var chunks = []
 ${1:request}
 	.on('data', function (chunk) {
-		buffer.push(chunk)
+		chunks.push(chunk)
 	})
 	.once('error', function (error) {
-		$0
+		$1
 	})
 	.once('end', function () {
-		var ${2:body} = Buffer.concat(buffer)
+		var ${2:body} = Buffer.concat(chunks)
 		$0
 	})
 endsnippet
