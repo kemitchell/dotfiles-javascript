@@ -179,8 +179,19 @@ snippet r "require statement" !b
 var $1 = require('$0')
 endsnippet
 
+global !p
+from os.path import basename, splitext
+
+def camel_case (string):
+	callback = lambda p: p.group(1).upper()
+	return re.sub(r'-([a-z])', callback, string)
+
+def base (string):
+	return splitext(basename(string))[0]
+endglobal
+
 snippet re "mirrored require statement" !b
-var $1 = require('`!p snip.rv = re.sub(r'(.)([A-Z])', r'\1-\2', t[1]).lower()`')$0
+var ${0:`!p snip.rv = camel_case(base(t[1]))`} = require('$1')
 endsnippet
 
 snippet cb "callback function"
@@ -308,7 +319,7 @@ findIndex(function (${1:element}) {
 })
 endsnippet
 
-snippet fi "find" w
+snippet find "find" w
 find(function (${1:element}) {
 	$0
 })
