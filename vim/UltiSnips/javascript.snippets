@@ -188,10 +188,14 @@ def camel_case (string):
 
 def base (string):
 	return splitext(basename(string))[0]
+
+def caps (string):
+	return re.sub(r'json', 'JSON', string, flags=re.IGNORECASE)
+
 endglobal
 
 snippet re "mirrored require statement" !b
-var ${0:`!p snip.rv = camel_case(base(t[1]))`} = require('$1')
+var ${0:`!p snip.rv = caps(camel_case(base(t[1])))`} = require('$1')
 endsnippet
 
 snippet cb "callback function"
