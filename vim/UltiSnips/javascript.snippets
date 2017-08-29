@@ -59,19 +59,15 @@ if ($1) {
 endsnippet
 
 snippet iferr
-if (error) {
-	${1:callback}(error)
-} else {
-	$0
-}
+if (error) return ${1:callback}(error)$0
 endsnippet
 
 snippet iece
-if (error) return ${1:callback}(error)
+if (error) return ${1:callback}(error)$0
 endsnippet
 
 snippet oncee
-.once('error', ${1:callback})
+.once('error', ${1:callback})$0
 endsnippet
 
 snippet eif
