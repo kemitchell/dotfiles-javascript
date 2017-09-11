@@ -186,7 +186,11 @@ def base (string):
 	return splitext(basename(string))[0]
 
 def caps (string):
-	return re.sub(r'json', 'JSON', string, flags=re.IGNORECASE)
+	return re.sub(
+		r'url', 'URL',
+		re.sub(r'json', 'JSON', string, flags=re.IGNORECASE),
+		flags=re.IGNORECASE
+	)
 
 endglobal
 
