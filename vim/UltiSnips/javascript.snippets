@@ -185,12 +185,13 @@ def camel_case (string):
 def base (string):
 	return splitext(basename(string))[0]
 
+subs = [[r'url', 'URL'], [r'json', 'JSON'],[r'html', 'HTML']]
+
 def caps (string):
-	return re.sub(
-		r'url', 'URL',
-		re.sub(r'json', 'JSON', string, flags=re.IGNORECASE),
-		flags=re.IGNORECASE
-	)
+	returned = string
+	for sub in subs:
+		returned = re.sub(sub[0], sub[1], returned, flags=re.IGNORECASE)
+	return returned
 
 endglobal
 
