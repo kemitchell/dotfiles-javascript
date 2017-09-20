@@ -16,7 +16,6 @@ var data = {
     '(https://kemitchell.com/)'
   ),
   repository: 'kemitchell/' + base + '.js',
-  files: ['index.js'],
   license: 'MIT'
 }
 
