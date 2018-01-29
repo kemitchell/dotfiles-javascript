@@ -1,37 +1,43 @@
 #!/bin/zsh
 set -e
-usage="Usage: <package>"
-package="$1"
 
-if [ -z "$package" ]
-then
-  echo "$usage"
+if [ -z "$1" ]; then
+  echo "Usage: <package>"
   exit 1
 fi
 
-regularDep=$(cat package.json | json "dependencies['$package']")
-devDep=$(cat package.json | json "devDependencies['$package']")
+message=""
 
-if [ "$devDep" ]; then
-  echo "$package is a devDependency."
-  flag='-D'
-else
-  if [ "$regularDep" ]; then
-    echo "$package is a dependency."
-    flag='-S'
+for package in "$@"; do
+  regularDep=$(cat package.json | json "dependencies['$package']")
+  devDep=$(cat package.json | json "devDependencies['$package']")
+
+  if [ "$devDep" ]; then
+    echo "$package is a devDependency."
+    flag='-D'
   else
-    echo "$package is not a depencency!"
-    exit 1
+    if [ "$regularDep" ]; then
+      echo "$package is a dependency."
+      flag='-S'
+    else
+      echo "$package is not a depencency!"
+      exit 1
+    fi
   fi
-fi
 
-latest=$(npm info "$package" version)
-range="^$latest"
+  latest=$(npm info "$package" version)
+  range="^$latest"
 
-echo "Latest $package is $latest."
+  echo "Latest $package is $latest."
 
-npm install "$flag" "$package@$range"
-#npm it
+  npm install "$flag" "$package@$range"
+  if [ -z "$message" ]; then
+    message="$package@$latest"
+  else
+    message="$message $package@$latest"
+  fi
+done
+
 git add package.json
 if [ -f npm-shrinkwrap.json ]; then
   npm shrinkwrap
@@ -42,4 +48,4 @@ if (git ls-files | fgrep package-lock.json > /dev/null) && [ -f package-lock.jso
     git add package-lock.json
   fi
 fi
-git commit -m "$package@^$latest"
+git commit -m "$message"
