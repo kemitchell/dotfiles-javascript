@@ -1,15 +1,12 @@
 #!/bin/zsh
 cat <<PACKAGES | xargs npm --global --build-from-source install
-  ansimd
   babel
   browserify
   commonform-cli
-  covert
   csslint
   cssmin
   depcheck
   difflet
-  dupsh
   eslint
   eslint-config-standard
   eslint-plugin-import
@@ -21,11 +18,8 @@ cat <<PACKAGES | xargs npm --global --build-from-source install
   gh
   git-latest-semver-tag
   http-server
-  istanbul
   json
   jsonlint
-  licensee
-  licensor
   lispy-json
   lispyscript
   mustache
