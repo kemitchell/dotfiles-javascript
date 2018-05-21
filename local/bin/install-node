@@ -1,0 +1,7 @@
+curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
+LIST=/etc/apt/sources.list.d/nodesource.list
+if [ ! -f "$LIST" ]; then
+  sudo echo "deb http://deb.nodesource.com/node_10.x stretch main" > "$LIST"
+fi
+sudo apt-get update
+sudo apt-get install nodejs
