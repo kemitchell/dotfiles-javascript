@@ -1,5 +1,3 @@
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
-
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exe = 'eslint'
 let g:syntastic_json_checkers = ['jsonlint']
