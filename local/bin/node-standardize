@@ -12,3 +12,4 @@ if [ -f .travis.yml ]; then
 fi
 
 git commit --all -m "Use JavaScript Standard Style"
+npm run lint
