@@ -260,6 +260,14 @@ snippet ass
 var assert = require('assert')
 endsnippet
 
+snippet ascb
+assert.equal(typeof callback, 'function', 'callback must be a function')
+endsnippet
+
+snippet astype
+assert.equal(typeof $1, '$2', '$1 must be a $2')
+endsnippet
+
 snippet suite
 tape('$1', function (suite) {
 	suite.test('$2', function (test) {
