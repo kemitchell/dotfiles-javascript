@@ -385,7 +385,7 @@ ${1:request}
 		chunks.push(chunk)
 	})
 	.once('error', function (error) {
-		$1
+		$2
 	})
 	.once('end', function () {
 		var ${2:body} = Buffer.concat(chunks)
