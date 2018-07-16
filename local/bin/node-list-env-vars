@@ -1,5 +1,5 @@
 #!/bin/sh
 # Have to run actual grep after git grep,
 # since git grep does not have -o
-re="process\.env\.[A-Z_]+"
+re="process\.env\.[A-Z0-9_]+"
 git grep -E "$re" | grep -E -o "$re" | cut -d '.' -f 3 | sort -u
