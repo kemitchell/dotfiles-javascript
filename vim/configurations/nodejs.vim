@@ -13,6 +13,7 @@ augroup javascript
   autocmd FileType javascript call JSSettings()
   autocmd FileType javascript nnoremap <buffer> <leader>c <Esc>:!npm run coverage<CR>
   autocmd FileType javascript nnoremap <buffer> <leader>l <Esc>:!npm run lint<CR>
+  autocmd FileType javascript nnoremap <buffer> <leader>f <Esc>:!npm run format<CR>
   autocmd FileType javascript setlocal spell
 augroup END
 
