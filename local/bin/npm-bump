@@ -6,9 +6,9 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
-message=""
-
 for package in "$@"; do
+  message=""
+
   regularDep=$(cat package.json | json "dependencies['$package']")
   devDep=$(cat package.json | json "devDependencies['$package']")
 
