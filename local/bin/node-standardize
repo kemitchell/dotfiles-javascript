@@ -5,7 +5,7 @@ scripts=$(cat package.json | json scripts)
 if [ -z "$scripts" ]; then
   json -I -f package.json -e 'this.scripts={}'
 fi
-json -I -f package.json -e 'this.scripts.lint="standard && standard-markdown"'
+json -I -f package.json -e 'this.scripts.lint="standard && standard-markdown README.md"'
 
 if [ -f .travis.yml ]; then
   node-travis-run-lint
