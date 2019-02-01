@@ -36,16 +36,16 @@ for package in "$@"; do
   else
     message="$message $package@$latest"
   fi
-done
 
-git add package.json
-if [ -f npm-shrinkwrap.json ]; then
-  npm shrinkwrap
-  git add npm-shrinkwrap.json
-fi
-if (git ls-files | fgrep package-lock.json > /dev/null) && [ -f package-lock.json ]; then
-  if git ls-files | fgrep package-lock.json; then
-    git add package-lock.json
+  git add package.json
+  if [ -f npm-shrinkwrap.json ]; then
+    npm shrinkwrap
+    git add npm-shrinkwrap.json
   fi
-fi
-git commit -m "$message"
+  if (git ls-files | fgrep package-lock.json > /dev/null) && [ -f package-lock.json ]; then
+    if git ls-files | fgrep package-lock.json; then
+      git add package-lock.json
+    fi
+  fi
+  git commit -m "$message"
+done
