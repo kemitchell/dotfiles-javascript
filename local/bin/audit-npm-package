@@ -1,0 +1,12 @@
+#!/bin/bash
+set -e
+if [ -z "$1" ] || [ -z "$2" ]; then
+  echo "Usage: package version"
+  exit 1
+fi
+
+NAME="$1"
+VERSION="$2"
+TARBALL="$NAME@$VERSION.tgz"
+curl -q "https://registry.npmjs.org/$NAME/-/$NAME-$VERSION.tgz" > "$TARBALL"
+unp 
