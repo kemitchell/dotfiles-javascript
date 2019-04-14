@@ -17,16 +17,6 @@ function ($1) {
 }
 endsnippet
 
-snippet F "function" !w
-($1) => $0
-endsnippet
-
-snippet FF "function" !w
-($1) => {
-	$0
-}
-endsnippet
-
 snippet con
 const $1 = $0
 endsnippet
@@ -96,8 +86,8 @@ endsnippet
 
 snippet Ter
 $1
-? $2
-: $0
+	? $2
+	: $0
 endsnippet
 
 snippet ret "return" !b
@@ -110,6 +100,10 @@ endsnippet
 
 snippet has "hasOwnProperty()" w
 hasOwnProperty($1)$0
+endsnippet
+
+snippet pp "property: property" w
+$1: $1$0
 endsnippet
 
 snippet for "for loop"
@@ -384,7 +378,7 @@ endsnippet
 
 snippet concat "Concatenate Stream" w
 var chunks = []
-${1:request}
+${1:stream}
 	.on('data', function (chunk) {
 		chunks.push(chunk)
 	})
@@ -392,23 +386,23 @@ ${1:request}
 		$2
 	})
 	.once('end', function () {
-		var ${2:body} = Buffer.concat(chunks)
+		var ${3:buffer} = Buffer.concat(chunks)
 		$0
 	})
 endsnippet
 
 snippet req "HTTP Request" w
 http.request({$1})
-.once('response', function (response) {
-	$0
-})
-.end($2)
+	.once('response', function (response) {
+		$0
+	})
+	.end($2)
 endsnippet
 
 # Literals
 
 snippet o "object" w
-{$0}
+{ $0 }
 endsnippet
 
 snippet oo "object" w
