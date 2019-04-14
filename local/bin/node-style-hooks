@@ -1,0 +1,15 @@
+#!/bin/bash
+if [ ! -f package.json ]; then
+  echo "No package.json" >/dev/stderr
+  exit
+fi
+
+TOOLS=''
+
+fgrep '"reformat-json-files"' package.json>/dev/null || TOOLS="$TOOLS reformat-json-files"
+fgrep '"standard"' package.json>/dev/null || TOOLS="$TOOLS standard"
+
+npm i -D husky lint-staged $TOOLS
+
+npx json -I -f package.json -e 'this.husky={"hooks":{"pre-commit":"lint-staged"}}'
+npx json -I -f package.json -e 'this["lint-staged"]={"*.js":["standard --fix","git add"],"*.json":["reformat-json-files","git add"]}'
