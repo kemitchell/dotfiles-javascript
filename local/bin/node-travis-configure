@@ -8,7 +8,8 @@ cat > "$YAML" <<HERE
 language: node_js
 node_js: node
 sudo: false
-script: npm test
+script:
+- npm test
 HERE
 
 git add .travis.yml
