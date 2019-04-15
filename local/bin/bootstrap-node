@@ -1,5 +1,0 @@
-#!/bin/bash
-set -e
-upgrade-node
-install-node-packages
-npm login

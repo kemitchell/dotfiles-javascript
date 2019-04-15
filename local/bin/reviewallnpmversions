@@ -1,0 +1,21 @@
+#!/bin/zsh
+set -e
+
+if [ -z "$1" ]; then
+  echo "Usage: <package>"
+  exit 0
+fi
+
+package="$1"
+versions=$(curl "https://registry.npmjs.org/$package" 2>/dev/null | json versions | json --keys -a)
+
+mkdir -p "$package"
+cd "$package"
+
+while read version; do
+  tarball="$package-$version.tgz"
+  wget --quiet "https://registry.npmjs.org/$package/-/$tarball"
+  tar -xf "$tarball"
+  mv package "$version"
+  rm "$tarball"
+done <<< "$versions"

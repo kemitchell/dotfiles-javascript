@@ -1,0 +1,24 @@
+#!/bin/zsh
+set -e
+if [ -z "$1" ] || [ -z "$2" ]; then
+  echo "Usage: package version"
+  exit 1
+fi
+
+NAME="$1"
+VERSION="$2"
+DIRECTORY="$NAME@$VERSION"
+TARBALL="$DIRECTORY.tgz"
+
+function cleanup {
+  rm -f "$TARBALL"
+}
+trap cleanup EXIT
+
+curl -s "https://registry.npmjs.org/$NAME/-/$NAME-$VERSION.tgz" > "$TARBALL"
+mkdir -p "$DIRECTORY"
+tar zx -C "$DIRECTORY" -f "$TARBALL"
+if [ -d "$DIRECTORY/package" ]; then
+  mv "$DIRECTORY/package/"* "$DIRECTORY"
+fi
+fgrep -ri license "$DIRECTORY"

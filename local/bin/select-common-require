@@ -1,8 +1,0 @@
-#!/usr/bin/zsh
-LIST="$HOME/.common-requires.js"
-if [[ ! -f "$LIST" ]]; then
-  echo "Missing $LIST"
-  exit 1
-fi
-
-selecta < "$LIST"

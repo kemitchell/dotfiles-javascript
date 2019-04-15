@@ -1,0 +1,2 @@
+#!/bin/zsh
+json -I -f package.json -e 'delete this.peerDependencies'

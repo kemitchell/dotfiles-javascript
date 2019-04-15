@@ -1,0 +1,13 @@
+#!/bin/zsh
+if [ -e package.json ]; then
+  if [ -f test.js ]; then
+    if [ ! -d node_modules ]; then
+      npm install
+    fi
+    node test.js 2>&1 | tee test.log
+  elif [ -d node_modules ]; then
+    npm test 2>&1 | tee test.log
+  else
+    npm it 2>&1 | tee test.log
+  fi
+fi

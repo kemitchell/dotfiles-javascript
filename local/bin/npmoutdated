@@ -1,2 +1,2 @@
-#!/bin/sh
+#!/bin/zsh
 npm outdated | tee outdated.log

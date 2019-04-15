@@ -1,0 +1,5 @@
+#!/bin/zsh
+BIN="$PREFIX/bin/dat-desktop"
+LATEST=$(get-latest-github-release-url datproject/dat-desktop AppImage)
+wget "$LATEST" -O "$BIN"
+chmod +x "$BIN"

@@ -1,0 +1,85 @@
+#!/bin/zsh
+
+DEP=$(realpath "$1")
+
+if [ -z "$DEP" ]; then
+  echo "Usage: npm-link-clone ./node_modules/<dependency>" >&2
+  exit 1
+fi
+
+if [ ! -d "$DEP" ] ; then
+  echo "No such directory $DEP" >&2
+  exit 1
+fi
+
+PACKAGE_JSON="$DEP/package.json"
+
+if [ ! -f "$PACKAGE_JSON" ] ; then
+  echo "Missing $PACKAGE_JSON" >&2
+  exit 1
+fi
+
+hash normalize-package-data 2>/dev/null \
+|| {
+  echo "Installing normalize-package-data-cli from npm."
+  npm i -g normalize-package-data-cli
+}
+
+hash json 2>/dev/null \
+|| {
+  echo "Installing json from npm."
+  npm i -g json
+}
+
+NORMALIZED="$(mktemp)"
+
+normalize-package-data "$PACKAGE_JSON" > "$NORMALIZED"
+
+NAME=$(json name < "$NORMALIZED")
+
+if [ -z "$NAME" ]; then
+  echo "Could not find package name." >&2
+  exit 1
+fi
+
+CLONE="$HOME/$NAME"
+
+if [ -d "$CLONE" ]; then
+  echo "$CLONE already exists" >&2
+  exit 1
+fi
+
+VERSION=$(json version < "$NORMALIZED")
+
+if [ -z "$VERSION" ]; then
+  echo "Could not find package version." >&2
+  exit 1
+fi
+
+REMOTE=$(json repository.url < "$NORMALIZED" | sed 's!git+https://github.com/!git@github.com:!')
+
+if [ -z "$REMOTE" ]; then
+  echo "Could not find Git remote." >&2
+  exit 1
+fi
+
+git clone "$REMOTE" "$CLONE" >/dev/null 2>&1 \
+|| {
+  echo "Could not clone ${REMOTE}." >&2
+  exit 1
+}
+
+(
+  cd "$CLONE"
+  git checkout "v$VERSION" >/dev/null 2>&1 \
+  || git checkout "$VERSION" >/dev/null 2>&1 \
+  || {
+    echo "Could not find tag for version ${VERSION}." >&2
+    exit 1
+  }
+  npm run prepublish >/dev/null 2>&1 || true
+)
+
+npm link "$CLONE"
+
+echo "$CLONE"

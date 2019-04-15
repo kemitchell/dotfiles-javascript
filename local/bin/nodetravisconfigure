@@ -1,0 +1,22 @@
+#!/bin/zsh
+set -e
+
+YAML=.travis.yml
+
+cat > "$YAML" <<HERE
+---
+language: node_js
+node_js: node
+sudo: false
+script:
+- npm test
+HERE
+
+git add .travis.yml
+
+if [ -f .npmignore ]; then
+  fgrep "$TRAVIS" .npmignore || echo "$TRAVIS" >> .npmignore
+  git add .npmignore
+fi
+
+git commit -m "Configure Travis CI"

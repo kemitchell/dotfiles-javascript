@@ -1,1 +1,2 @@
+#!/bin/zsh
 npm audit | tee audit.log

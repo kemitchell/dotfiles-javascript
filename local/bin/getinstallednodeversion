@@ -1,0 +1,2 @@
+#!/bin/zsh
+node --version | sed 's/^v//' || echo "NONE"

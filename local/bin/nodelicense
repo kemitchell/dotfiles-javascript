@@ -1,0 +1,5 @@
+#!/bin/zsh
+set -e
+licensor < package.json | par -w72 > LICENSE
+git add LICENSE
+git commit -m "Add LICENSE"

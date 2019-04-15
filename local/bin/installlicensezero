@@ -1,0 +1,8 @@
+#!/bin/zsh
+TMP=$(mktemp)
+function cleanup { rm -f "$TMP"; }
+trap cleanup EXIT
+URL=$(get-latest-github-release-url licensezero/cli linux-amd64)
+curl --silent --location "$URL" -o "$TMP"
+chmod +x "$TMP"
+mv "$TMP" "$HOME/.local/bin/licensezero"
