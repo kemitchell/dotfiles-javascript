@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+if (process.argv.length < 3) {
+  process.stderr.write('Usage: <package-name> (<path>)\n')
+  process.exit(1)
+}
+
+var name = process.argv[2]
+var cwd = process.argv[3] || process.cwd()
+
+var manifest = require(require('path').join(cwd, 'package.json'))
+var found = false
+check('dependencies')
+check('devDependencies')
+process.exit(found ? 0 : 1)
+
+function check (type) {
+  if (manifest[type] && manifest[type][name]) {
+    found = true
+    process.stdout.write(type + '\n')
+    process.stdout.write(manifest[type][name] + '\n')
+  }
+}
