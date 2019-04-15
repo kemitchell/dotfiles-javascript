@@ -1,2 +1,2 @@
 #!/bin/zsh
-upgrade-program get-current-node-version get-installed-node-version install-node-binary
+upgradeprogram getcurrentnodeversion getinstallednodeversion installnodebinary
