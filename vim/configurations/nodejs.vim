@@ -48,6 +48,6 @@ augroup END
 autocmd BufNewFile,BufRead *.pegjs set filetype=pegjs
 
 augroup markdown
-  autocmd FileType markdown nnoremap <buffer> <leader>t <Esc>:!node-test<CR>
-  autocmd FileType markdown nnoremap <buffer> <leader>c <Esc>:!node-coverage<CR>
+  autocmd FileType markdown nnoremap <buffer> <leader>t <Esc>:!nodetest<CR>
+  autocmd FileType markdown nnoremap <buffer> <leader>c <Esc>:!nodecoverage<CR>
 augroup END
