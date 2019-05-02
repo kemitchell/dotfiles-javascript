@@ -1,5 +1,6 @@
 let g:syntastic_javascript_checkers = ['standard']
 "let g:syntastic_javascript_eslint_exe = 'eslint'
+let g:syntastic_javascript_standard_generic = 1
 let g:syntastic_json_checkers = ['jsonlint']
 let g:syntastic_aggregate_errors = 1
 
