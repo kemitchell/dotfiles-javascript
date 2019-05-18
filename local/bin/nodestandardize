@@ -1,6 +1,6 @@
 #!/bin/zsh
 npm install --save-dev standard standard-markdown --cache-min 999999
-npmensure json
+npmensure json >/dev/null
 
 scripts=$(cat package.json | json scripts)
 if [ -z "$scripts" ]; then
