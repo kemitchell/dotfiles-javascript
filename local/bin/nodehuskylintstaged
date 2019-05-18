@@ -1,0 +1,4 @@
+#!/bin/zsh
+npm install --save-dev husky lint-staged reformat-json-files
+json -I -f package.json -e 'this["lint-staged"]={"*.js":["standard --fix","git add"],"*.json":["reformat-json-files","git add"]}'
+json -I -f package.json -e 'this.husky={"hooks":{"pre-commit":"lint-staged"}}'
