@@ -24,4 +24,7 @@ var data = {
   license: 'BlueOak-1.0.0'
 }
 
-console.log(JSON.stringify(data, null, 2))
+require('fs').writeFileSync(
+  'package.json',
+  JSON.stringify(data, null, 2)
+)
