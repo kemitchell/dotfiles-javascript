@@ -1,0 +1,9 @@
+#!/bin/zsh
+if [ -z "$1" ]; then
+  echo "Ussage: <command>" >/dev/stderr
+  exit 1
+fi
+
+cli="$1"
+package="${2:-$1}"
+command -v "$cli" >/dev/null || npm i -g "$package"
