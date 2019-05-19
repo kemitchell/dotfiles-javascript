@@ -1,3 +1,2 @@
 Plugin 'pangloss/vim-javascript'
 Plugin 'JSON.vim'
-Plugin 'moll/vim-node'
