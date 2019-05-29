@@ -15,6 +15,11 @@ https://github.com/commonform/commonform-critique
 https://github.com/commonform/ooxml-signature-pages
 https://github.com/commonform/outline-numbering
 https://github.com/commonform/decimal-numbering
+https://github.com/commonform/abstract-numbering
+https://github.com/commonform/plan-addenda-exhibits-numbering
+https://github.com/commonform/make-master-attachments-numbering
+https://github.com/commonform/agreement-schedules-exhibits-numbering
+https://github.com/commonform/resolutions-schedules-exhibits-numbering
 EOS
 
 while read -r package; do
