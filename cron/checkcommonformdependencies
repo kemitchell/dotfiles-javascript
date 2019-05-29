@@ -1,27 +1,25 @@
 #!/bin/zsh
-REPOSITORIES = <<<EOS
-https://github.com/commonform/commonform-validate
-https://github.com/commonform/commonform-seraialize
-https://github.com/commonform/commonform-hash
-https://github.com/commonform/commonform-docx
-https://github.com/commonform/commonform-commonmark
-https://github.com/commonform/commonform-html
-https://github.com/commonform/commonform-resolve
-https://github.com/commonform/commonform-number
-https://github.com/commonform/commonform-group-series
-https://github.com/commonform/commonform-analyze
-https://github.com/commonform/commonform-lint
-https://github.com/commonform/commonform-critique
-https://github.com/commonform/ooxml-signature-pages
-https://github.com/commonform/outline-numbering
-https://github.com/commonform/decimal-numbering
-https://github.com/commonform/abstract-numbering
-https://github.com/commonform/plan-addenda-exhibits-numbering
-https://github.com/commonform/make-master-attachments-numbering
-https://github.com/commonform/agreement-schedules-exhibits-numbering
-https://github.com/commonform/resolutions-schedules-exhibits-numbering
+while read package; do
+  outdatednpmdependencies "https://github.com/commonform/$package"
+done <<EOS
+abstract-numbering
+agreement-schedules-exhibits-numbering
+commonform-analyze
+commonform-commonmark
+commonform-critique
+commonform-docx
+commonform-group-series
+commonform-hash
+commonform-html
+commonform-lint
+commonform-number
+commonform-resolve
+commonform-seraialize
+commonform-validate
+decimal-numbering
+make-master-attachments-numbering
+ooxml-signature-pages
+outline-numbering
+plan-addenda-exhibits-numbering
+resolutions-schedules-exhibits-numbering
 EOS
-
-while read -r package; do
-  outdatednpmdependencies "$package"
-done <<< $REPOSITORIES
