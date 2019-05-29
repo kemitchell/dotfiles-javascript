@@ -9,8 +9,10 @@ fi
 json -I -f package.json -e 'this.scripts.lint="standard && standard-markdown README.md"'
 
 if [ -f .travis.yml ]; then
-  node-travis-run-lint
+  nodetravisrunlint
 fi
 
+./node_modules/.bin/standard --fix
+./node_modules/.bin/standard-markdown --fix
 git commit --all -m "Use JavaScript Standard Style"
 npm run lint
