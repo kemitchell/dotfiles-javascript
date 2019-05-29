@@ -1,0 +1,22 @@
+#!/bin/zsh
+REPOSITORIES = <<<EOS
+https://github.com/commonform/commonform-validate
+https://github.com/commonform/commonform-seraialize
+https://github.com/commonform/commonform-hash
+https://github.com/commonform/commonform-docx
+https://github.com/commonform/commonform-commonmark
+https://github.com/commonform/commonform-html
+https://github.com/commonform/commonform-resolve
+https://github.com/commonform/commonform-number
+https://github.com/commonform/commonform-group-series
+https://github.com/commonform/commonform-analyze
+https://github.com/commonform/commonform-lint
+https://github.com/commonform/commonform-critique
+https://github.com/commonform/ooxml-signature-pages
+https://github.com/commonform/outline-numbering
+https://github.com/commonform/decimal-numbering
+EOS
+
+while read -r package; do
+  outdatednpmdependencies "$package"
+done <<< $REPOSITORIES
