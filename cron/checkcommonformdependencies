@@ -14,10 +14,9 @@ commonform-html
 commonform-lint
 commonform-number
 commonform-resolve
-commonform-seraialize
+commonform-serialize
 commonform-validate
 decimal-numbering
-make-master-attachments-numbering
 ooxml-signature-pages
 outline-numbering
 plan-addenda-exhibits-numbering
