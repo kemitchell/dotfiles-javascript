@@ -4,7 +4,9 @@ while read package; do
 done <<EOS
 abstract-numbering
 agreement-schedules-exhibits-numbering
+commonform-alex
 commonform-analyze
+commonform-archaic
 commonform-commonmark
 commonform-critique
 commonform-docx
@@ -12,11 +14,13 @@ commonform-group-series
 commonform-hash
 commonform-html
 commonform-lint
+commonform-mscd
 commonform-number
 commonform-phrase-annotator
 commonform-regexp-annotator
 commonform-resolve
 commonform-serialize
+commonform-unmarked-uses
 commonform-validate
 decimal-numbering
 ooxml-signature-pages
