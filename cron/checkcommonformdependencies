@@ -13,6 +13,8 @@ commonform-hash
 commonform-html
 commonform-lint
 commonform-number
+commonform-phrase-annotator
+commonform-regexp-annotator
 commonform-resolve
 commonform-serialize
 commonform-validate
