@@ -2,16 +2,15 @@
 cat <<PACKAGES | xargs npm --global --build-from-source install
   babel
   browserify
-  commonform-cli
+  commonform-lint
+  commonform-critique
+  commonform-docx
+  commonform-html
+  commonform-commonmark
   csslint
   cssmin
   depcheck
   difflet
-  eslint
-  eslint-config-standard
-  eslint-plugin-import
-  eslint-plugin-markdown
-  eslint-plugin-node
   exorcist
   faucet
   fixpack
