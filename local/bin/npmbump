@@ -47,9 +47,10 @@ for package in "$@"; do
       git add package-lock.json
     fi
   fi
+
   git commit -m "$message"
 done
 
 if [ "$1" = "standard" ]; then
-  npx standard
+  npx standard --fix
 fi
