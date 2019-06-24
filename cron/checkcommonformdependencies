@@ -4,7 +4,6 @@ while read package; do
 done <<EOS
 abstract-numbering
 agreement-schedules-exhibits-numbering
-commonform-alex
 commonform-analyze
 commonform-archaic
 commonform-commonmark
