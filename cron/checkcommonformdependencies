@@ -2,7 +2,7 @@
 while read slug; do
   remote="https://github.com/$slug"
   outdatednpmdependencies "$remote"
-  auditnpmdependencies "$remote"
+  #auditnpmdependencies "$remote"
 done <<EOS
 commonform/abstract-numbering
 commonform/agreement-schedules-exhibits-numbering
