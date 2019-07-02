@@ -1,6 +1,8 @@
 #!/bin/zsh
 while read slug; do
-  outdatednpmdependencies "https://github.com/$slug"
+  remote="https://github.com/$slug"
+  outdatednpmdependencies "$remote"
+  auditnpmdependencies "$remote"
 done <<EOS
 commonform/abstract-numbering
 commonform/agreement-schedules-exhibits-numbering
