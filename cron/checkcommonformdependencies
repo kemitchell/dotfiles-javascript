@@ -1,29 +1,33 @@
 #!/bin/zsh
-while read package; do
-  outdatednpmdependencies "https://github.com/commonform/$package"
+while read slug; do
+  outdatednpmdependencies "https://github.com/$slug"
 done <<EOS
-abstract-numbering
-agreement-schedules-exhibits-numbering
-commonform-analyze
-commonform-archaic
-commonform-commonmark
-commonform-critique
-commonform-docx
-commonform-group-series
-commonform-hash
-commonform-html
-commonform-lint
-commonform-mscd
-commonform-number
-commonform-phrase-annotator
-commonform-regexp-annotator
-commonform-resolve
-commonform-serialize
-commonform-unmarked-uses
-commonform-validate
-decimal-numbering
-ooxml-signature-pages
-outline-numbering
-plan-addenda-exhibits-numbering
-resolutions-schedules-exhibits-numbering
+commonform/abstract-numbering
+commonform/agreement-schedules-exhibits-numbering
+commonform/commonform-analyze
+commonform/commonform-archaic
+commonform/commonform-commonmark
+commonform/commonform-critique
+commonform/commonform-docx
+commonform/commonform-group-series
+commonform/commonform-hash
+commonform/commonform-html
+commonform/commonform-lint
+commonform/commonform-mscd
+commonform/commonform-number
+commonform/commonform-phrase-annotator
+commonform/commonform-regexp-annotator
+commonform/commonform-resolve
+commonform/commonform-serialize
+commonform/commonform-server
+commonform/commonform-unmarked-uses
+commonform/commonform-validate
+commonform/decimal-numbering
+commonform/ooxml-signature-pages
+commonform/outline-numbering
+commonform/plan-addenda-exhibits-numbering
+commonform/resolutions-schedules-exhibits-numbering
+kemitchell/level-simple-log.js
+kemitchell/tcp-log-client.js
+kemitchell/tcp-log-server.js
 EOS
