@@ -50,7 +50,3 @@ for package in "$@"; do
 
   git commit -m "$message"
 done
-
-if [ "$1" = "standard" ]; then
-  npx standard --fix
-fi
