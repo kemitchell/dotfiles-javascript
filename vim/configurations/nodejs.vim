@@ -9,7 +9,7 @@ augroup javascript
   autocmd FileType javascript nnoremap <buffer> <leader>c <Esc>:!npm run coverage<CR>
   autocmd FileType javascript nnoremap <buffer> <leader>l <Esc>:!npm run lint<CR>
   autocmd FileType javascript nnoremap <buffer> <leader>f <Esc>:!npm run format<CR>
-  autocmd FileType javascript setlocal spell
+  "autocmd FileType javascript setlocal spell
   autocmd FileType javascript let b:ale_linters = ['standard']
   autocmd FileType javascript let b:ale_fixers = ['standard']
 augroup END
