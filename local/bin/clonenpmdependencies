@@ -1,6 +1,4 @@
 #!/bin/bash
-set -e
-
 if [ -z "$1" ] || [ -z "$2" ]; then
   echo "Usage: <remote> <clones directory>"
 fi
@@ -16,9 +14,9 @@ function cleanup () {
   rm -rf "$TMP"
 }
 
-git clone --quiet "$remote" "$TMP"
+git clone --quiet "$remote" "$TMP" || exit 1
 cd "$TMP"
-npm install>/dev/null
+npm install>/dev/null || exit 1
 npm ls --parseable --long | cut -d ":" -f 2 | rev | cut -d "@" -f 2- | rev | sort -u > allDeps
 while read -r name; do
   echo "$name"

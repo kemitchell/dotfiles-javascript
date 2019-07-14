@@ -14,6 +14,10 @@ remote=$(
   sed 's/git+https\(.\+\).git/https\1/'
 )
 
+if [[ "$remote" == https://github.com/babel/babel/tree/master/packages/* ]]; then
+  remote="https://github.com/babel/babel"
+fi
+
 mkdir -p $(basename "$destination")
 
 if [ -d "$destination" ]; then
