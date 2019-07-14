@@ -1,0 +1,27 @@
+#!/bin/zsh
+set -e
+
+name="$1"
+destination="$2"
+
+if [ -z "$name" ] || [ -z "$destination" ]; then
+  echo "Usage: <name> <destination>"
+  exit 1
+fi
+
+remote=$(
+  npm info "$name" repository.url | \
+  sed 's/git+https\(.\+\).git/https\1/'
+)
+
+mkdir -p $(basename "$destination")
+
+if [ -d "$directory" ]; then
+  git --git-dir "$directory" fetch --all
+else
+  if [[ $* == *--refresh* ]]; then
+    git clone --bare --recursive --quiet "$remote" "$2"
+  else
+    git clone --recursive --quiet "$remote" "$2"
+  fi
+fi

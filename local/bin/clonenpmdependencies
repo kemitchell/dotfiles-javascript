@@ -1,0 +1,21 @@
+#!/bin/bash
+set -e
+
+if [ -z "$1" ] || [ -z "$2" ]; then
+  echo "Usage: <remote> <clones directory>"
+fi
+
+mkdir -p "$2"
+
+TMP=$(mktemp -d)
+trap cleanup EXIT
+function cleanup () {
+  rm -rf "$TMP"
+}
+
+git clone --quiet "$1" "$TMP"
+cd "$TMP"
+json dependencies < package.json | json -k -a > deps
+json devDependencies < package.json | json -k -a > devDeps
+cat deps devDeps | sort -u > allDeps
+parallel -a allDeps npmclonerepo {} "$2"
