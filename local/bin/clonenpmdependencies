@@ -19,10 +19,8 @@ function cleanup () {
 git clone --quiet "$remote" "$TMP"
 cd "$TMP"
 npm install>/dev/null
-npm ls --parseable --long | cut -d ":" -f 2 > deps
-json dependencies < package.json | json -k -a > deps
-json devDependencies < package.json | json -k -a > devDeps
-cat deps devDeps | sort -u > allDeps
+npm ls --parseable --long | cut -d ":" -f 2 | rev | cut -d "@" -f 2- | rev | sort -u > allDeps
 while read -r name; do
+  echo "$name"
   npmclonerepo "$name" "$destination/$name" --bare
 done < allDeps
