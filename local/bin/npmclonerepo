@@ -14,14 +14,16 @@ remote=$(
   sed 's/git+https\(.\+\).git/https\1/'
 )
 
+echo "$name $remote $destination"
+
 mkdir -p $(basename "$destination")
 
-if [ -d "$directory" ]; then
-  git --git-dir "$directory" fetch --all
+if [ -d "$destination" ]; then
+  git --git-dir "$destination" fetch --all
 else
-  if [[ $* == *--refresh* ]]; then
-    git clone --bare --recursive --quiet "$remote" "$2"
+  if [[ $* == *--bare* ]]; then
+    git clone --bare --recursive "$remote" "$destination"
   else
-    git clone --recursive --quiet "$remote" "$2"
+    git clone --recursive "$remote" "$destination"
   fi
 fi
