@@ -14,8 +14,6 @@ remote=$(
   sed 's/git+https\(.\+\).git/https\1/'
 )
 
-echo "$name $remote $destination"
-
 mkdir -p $(basename "$destination")
 
 if [ -d "$destination" ]; then
