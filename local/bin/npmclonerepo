@@ -17,11 +17,11 @@ remote=$(
 mkdir -p $(basename "$destination")
 
 if [ -d "$destination" ]; then
-  git --git-dir "$destination" fetch --all
+  git --git-dir "$destination" fetch --quiet --all
 else
   if [[ $* == *--bare* ]]; then
-    git clone --bare --recursive "$remote" "$destination"
+    git clone --quiet --bare --recursive "$remote" "$destination"
   else
-    git clone --recursive "$remote" "$destination"
+    git clone --quiet --recursive "$remote" "$destination"
   fi
 fi
