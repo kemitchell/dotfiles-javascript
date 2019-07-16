@@ -6,8 +6,14 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
+STANDARD="false"
+
 for package in "$@"; do
   message=""
+
+  if [ "$package" == "standard" ]; then
+    STANDARD="true"
+  fi
 
   regularDep=$(cat package.json | json "dependencies['$package']")
   devDep=$(cat package.json | json "devDependencies['$package']")
@@ -50,3 +56,8 @@ for package in "$@"; do
 
   git commit -m "$message"
 done
+
+if [ "$STANDARD" == "true" ]; then
+  npx standard
+fi
+
