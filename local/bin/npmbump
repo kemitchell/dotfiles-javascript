@@ -11,7 +11,7 @@ STANDARD="false"
 for package in "$@"; do
   message=""
 
-  if [ "$package" == "standard" ]; then
+  if [ "$package" = "standard" ]; then
     STANDARD="true"
   fi
 
@@ -57,7 +57,7 @@ for package in "$@"; do
   git commit -m "$message"
 done
 
-if [ "$STANDARD" == "true" ]; then
+if [ "$STANDARD" = "true" ]; then
   npx standard
 fi
 
