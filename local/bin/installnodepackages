@@ -1,7 +1,5 @@
 #!/bin/zsh
 cat <<PACKAGES | xargs npm --global --build-from-source install
-  babel
-  browserify
   commonform-lint
   commonform-critique
   commonform-docx
@@ -11,16 +9,11 @@ cat <<PACKAGES | xargs npm --global --build-from-source install
   cssmin
   depcheck
   difflet
-  exorcist
-  faucet
-  fixpack
   gh
   git-latest-semver-tag
   http-server
   json
-  jsonlint
   lispy-json
-  lispyscript
   mustache
   mustache-vars
   ndjson-cli
@@ -28,17 +21,9 @@ cat <<PACKAGES | xargs npm --global --build-from-source install
   np
   npx
   pino
-  prettier
-  prettier-standard
   scuttlebot
   semver
   standard
   standard-markdown
   strip-ansi-cli
-  tap-diff
-  tap-difflet
-  tap-prettify
-  tape
-  why-is-node-running
-  wtfnode
 PACKAGES
