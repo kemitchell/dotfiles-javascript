@@ -1,5 +1,10 @@
 #!/bin/zsh
 cat <<PACKAGES | xargs npm --global --build-from-source install
+  commonform-lint
+  commonform-critique
+  commonform-docx
+  commonform-html
+  commonform-commonmark
   csslint
   cssmin
   depcheck
@@ -16,6 +21,7 @@ cat <<PACKAGES | xargs npm --global --build-from-source install
   np
   npx
   pino
+  scuttlebot
   semver
   standard
   standard-markdown
