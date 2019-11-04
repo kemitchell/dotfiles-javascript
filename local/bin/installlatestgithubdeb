@@ -7,6 +7,6 @@ fi
 TMP=$(mktemp)
 function cleanup { rm -f "$TMP"; }
 trap cleanup EXIT
-URL=$(get-latest-github-release-url "$1" "$2")
+URL=$(getlatestgithubreleaseurl "$1" "$2")
 curl --silent --location "$URL" -o "$TMP"
 sudo dpkg -i "$TMP"
