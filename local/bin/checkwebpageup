@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+var url = process.argv[2]
+if (!url) {
+  console.error('Usage: <URL>')
+  process.exit(1)
+}
+
+var protocol
+if (url.startsWith('https://')) {
+  protocol = require('https')
+} else if (url.startsWith('http://')) {
+  protocol = require('http')
+} else {
+  console.error('invalid URL')
+  process.exit(1)
+}
+
+protocol.get(url, function (response) {
+  var statusCode = response.statusCode
+  if ([200, 301, 302, 303].includes(statusCode)) {
+    process.exit(0)
+  }
+  console.error(statusCode)
+  process.exit(1)
+}).on('error', function (error) {
+  console.error(error.toString())
+  process.exit(1)
+})
