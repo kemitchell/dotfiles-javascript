@@ -13,4 +13,4 @@ trap cleanup EXIT
 git clone --quiet "$1" "$TMPDIR" 2>&1 >/dev/null
 cd "$TMPDIR"
 npm install 2>&1 >/dev/null
-npm outdated | fgrep -v Package
+npm outdated --production | fgrep -v Package
