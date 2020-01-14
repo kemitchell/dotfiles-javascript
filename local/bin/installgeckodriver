@@ -1,0 +1,13 @@
+#!/bin/bash
+set -e
+bin=$HOME/.local/bin/geckodriver
+url=$(getlatestgithubreleaseurl "mozilla/geckodriver" linux64)
+tmp=$(mktemp -d)
+function cleanup {
+  rm -r "$tmp"
+}
+trap cleanup EXIT
+cd "$tmp"
+wget --quiet "$url"
+unp ./*.tar.gz
+mv "geckodriver" "$bin"
