@@ -11,3 +11,4 @@ cd "$tmp"
 wget --quiet "$url"
 unp ./*.tar.gz
 mv "geckodriver" "$bin"
+geckodriver --version
