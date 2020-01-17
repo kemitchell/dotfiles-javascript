@@ -117,8 +117,8 @@ $1: $1$0
 endsnippet
 
 snippet for "for loop"
-for (var ${2:index} = 0; $2 < ${1:source}.length; $2++) {
-	var ${3:element} = $1[$2]
+for (let ${2:index} = 0; $2 < ${1:source}.length; $2++) {
+	let ${3:element} = $1[$2]
 	${VISUAL}$0
 }
 endsnippet
@@ -180,7 +180,7 @@ exports.$1 = $2
 endsnippet
 
 snippet r "require statement" !b
-var $1 = require('$0')
+const $1 = require('$0')
 endsnippet
 
 global !p
@@ -204,7 +204,7 @@ def caps (string):
 endglobal
 
 snippet re "mirrored require statement" !b
-var ${0:`!p snip.rv = caps(camel_case(base(t[1])))`} = require('$1')
+const ${0:`!p snip.rv = caps(camel_case(base(t[1])))`} = require('$1')
 endsnippet
 
 snippet cb "callback function"
@@ -265,7 +265,7 @@ endsnippet
 # Testing
 
 snippet ass
-var assert = require('assert')
+const assert = require('assert')
 endsnippet
 
 snippet ascb
@@ -387,7 +387,7 @@ reduce((${1:mem}, ${2:element}$3) => {
 endsnippet
 
 snippet concat "Concatenate Stream" w
-var chunks = []
+const chunks = []
 ${1:stream}
 	.on('data', (chunk) => {
 		chunks.push(chunk)
@@ -396,7 +396,7 @@ ${1:stream}
 		$2
 	})
 	.once('end', () => {
-		var ${3:buffer} = Buffer.concat(chunks)
+		const ${3:buffer} = Buffer.concat(chunks)
 		$0
 	})
 endsnippet
@@ -476,7 +476,7 @@ snippet ignorenext
 endsnippet
 
 snippet args
-var args = Array.prototype.slice.call(arguments)
+const args = Array.prototype.slice.call(arguments)
 endsnippet
 
 snippet ts "toString()" w
@@ -490,8 +490,8 @@ if (!(this instanceof $1)) {
 endsnippet
 
 snippet exc
-var $1 = require('$2').$1
-var inherits = require('util').inherits
+const $1 = require('$2').$1
+const inherits = require('util').inherits
 
 module.exports = $3
 
@@ -506,7 +506,7 @@ function $3 (options) {
 
 inherits($3, $1)
 
-var prototype = $3.prototype
+const prototype = $3.prototype
 endsnippet
 
 # Promises
@@ -546,9 +546,9 @@ appendChild(document.createTextNode($0))
 endsnippet
 
 snippet self
-var self = this
+const self = this
 endsnippet
 
 snippet pull
-var $1 = $2.$1$0
+const $1 = $2.$1$0
 endsnippet
