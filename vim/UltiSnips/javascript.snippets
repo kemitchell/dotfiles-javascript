@@ -277,15 +277,15 @@ assert.equal(typeof $1, '$2')
 endsnippet
 
 snippet suite
-tape('$1', (suite) => {
-	suite.test('$2', (test) => {
+tape('$1', suite => {
+	suite.test('$2', test => {
 		$0
 	})
 })
 endsnippet
 
 snippet test
-tape('$1', (test) => {
+tape('$1', test => {
 	$0
 	test.end()
 })
@@ -389,10 +389,10 @@ endsnippet
 snippet concat "Concatenate Stream" w
 const chunks = []
 ${1:stream}
-	.on('data', (chunk) => {
+	.on('data', chunk => {
 		chunks.push(chunk)
 	})
-	.once('error', (error) => {
+	.once('error', error => {
 		$2
 	})
 	.once('end', () => {
@@ -403,7 +403,7 @@ endsnippet
 
 snippet req "HTTP Request" w
 http.request({$1})
-	.once('response', (response) => {
+	.once('response', response => {
 		$0
 	})
 	.end($2)
@@ -518,7 +518,7 @@ then((${1:result}) => {
 endsnippet
 
 snippet catch "catch" w
-catch((error) => {
+catch(error => {
 	$0
 })
 endsnippet
