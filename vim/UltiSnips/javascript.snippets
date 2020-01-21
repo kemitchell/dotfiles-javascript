@@ -327,55 +327,55 @@ endsnippet
 # Functional
 
 snippet map "map" w
-map((${1:element}) => {
+map(${1:element} => {
 	$0
 })
 endsnippet
 
 snippet filter "filter" w
-filter((${1:element}) => {
+filter(${1:element} => {
 	$0
 })
 endsnippet
 
 snippet fix "findIndex" w
-findIndex((${1:element}) => {
+findIndex(${1:element} => {
 	$0
 })
 endsnippet
 
 snippet find "find" w
-find((${1:element}) => {
+find(${1:element} => {
 	$0
 })
 endsnippet
 
 snippet lio "lastIndexOf" w
-lastIndexOf((${1:element}) => {
+lastIndexOf(${1:element} => {
 	$0
 })
 endsnippet
 
 snippet every "every" w
-every((${1:element}) => {
+every(${1:element} => {
 	$0
 })
 endsnippet
 
 snippet some "some" w
-some((${1:element}) => {
+some(${1:element} => {
 	$0
 })
 endsnippet
 
 snippet any "any" w
-any((${1:element}) => {
+any(${1:element} => {
 	$0
 })
 endsnippet
 
 snippet fe "forEach" w
-forEach((${1:element}${2}) => {
+forEach(${1:element}${2} => {
 	$0
 })
 endsnippet
@@ -389,9 +389,7 @@ endsnippet
 snippet concat "Concatenate Stream" w
 const chunks = []
 ${1:stream}
-	.on('data', chunk => {
-		chunks.push(chunk)
-	})
+	.on('data', chunk => { chunks.push(chunk) })
 	.once('error', error => {
 		$2
 	})
