@@ -7,7 +7,7 @@ augroup javascript
   autocmd FileType javascript nnoremap <buffer> <leader>m <Esc>:!make<CR>
   autocmd FileType javascript call JSSettings()
   autocmd FileType javascript nnoremap <buffer> <leader>c <Esc>:!npm run coverage<CR>
-  autocmd FileType javascript nnoremap <buffer> <leader>l <Esc>:!npm run lint | tee lint.log<CR>
+  autocmd FileType javascript nnoremap <buffer> <leader>l <Esc>:!npm run lint \| tee lint.log<CR>
   autocmd FileType javascript nnoremap <buffer> <leader>f <Esc>:!npm run format<CR>
   "autocmd FileType javascript setlocal spell
   autocmd FileType javascript let b:ale_linters = ['standard']
