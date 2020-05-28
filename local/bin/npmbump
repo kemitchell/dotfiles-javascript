@@ -54,10 +54,9 @@ for package in "$@"; do
     fi
   fi
 
-  git commit -m "$message"
+  git commit --no-verify -m "$message"
 done
 
 if [ "$STANDARD" = "true" ]; then
   npx standard
 fi
-
