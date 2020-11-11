@@ -1,0 +1,25 @@
+#!/bin/bash
+set -e
+if [ ! -f package.json ]; then
+  echo "No package.json file."
+  exit 1
+fi
+
+yml=.github/workflows/ci.yml
+mkdir -p "$(dirname "$yml")"
+cat > "$yml" <<EOS
+name: CI
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - run: npm install
+      - run: npm test
+        env:
+          CI: true
+EOS
+git add "$yml"
+git commit -m "Configure GitHub Action for CI"
