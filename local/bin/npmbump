@@ -6,15 +6,7 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
-STANDARD="false"
-
 for package in "$@"; do
-  message=""
-
-  if [ "$package" = "standard" ]; then
-    STANDARD="true"
-  fi
-
   regularDep=$(cat package.json | json "dependencies['$package']")
   devDep=$(cat package.json | json "devDependencies['$package']")
 
@@ -34,14 +26,9 @@ for package in "$@"; do
   latest=$(npm info "$package" version)
   range="^$latest"
 
-  echo "Latest $package is $latest."
+  echo "Latest $package is $latest. Installing."
 
   npm install "$flag" "$package@$range"
-  if [ -z "$message" ]; then
-    message="$package@$latest"
-  else
-    message="$message $package@$latest"
-  fi
 
   git add package.json
   if [ -f npm-shrinkwrap.json ]; then
@@ -54,9 +41,5 @@ for package in "$@"; do
     fi
   fi
 
-  git commit --no-verify -m "$message"
+  git commit --no-verify -m "$package@$latest"
 done
-
-if [ "$STANDARD" = "true" ]; then
-  npx standard
-fi
