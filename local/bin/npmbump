@@ -32,6 +32,7 @@ for package in "$@"; do
   npm install --quiet --no-audit --no-fund "$flag" "$package@$range"
   echo "Done."
 
+
   git add package.json >/dev/null
   if [ -f npm-shrinkwrap.json ]; then
     npm shrinkwrap
@@ -41,6 +42,11 @@ for package in "$@"; do
     if git ls-files | fgrep package-lock.json; then
       git add package-lock.json >/dev/null
     fi
+  fi
+
+  if [ "$package" = "standard" ]; then
+    npx standard --fix
+    git add --update **/*.js
   fi
 
   echo -n "Committing ..."
