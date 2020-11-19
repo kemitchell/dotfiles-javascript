@@ -28,23 +28,23 @@ for package in "$@"; do
   echo "Latest $package is $latest."
 
   echo -n "Installing ... "
-  npm install --quiet "$flag" "$package@$range"
+  npm install --quiet --no-audit --no-fund "$flag" "$package@$range"
   echo "Done."
 
   echo "Staging files."
-  git add --quiet package.json
+  git add package.json >/dev/null
   if [ -f npm-shrinkwrap.json ]; then
     npm shrinkwrap
-    git add --quiet npm-shrinkwrap.json
+    git add npm-shrinkwrap.json >/dev/null
   fi
   if (git ls-files | fgrep package-lock.json > /dev/null) && [ -f package-lock.json ]; then
     if git ls-files | fgrep package-lock.json; then
-      git add --quiet package-lock.json
+      git add package-lock.json >/dev/null
     fi
   fi
 
   echo "Committing."
-  git commit --no-verify -m "$package@$latest"
+  git commit --no-verify -m "$package@$latest" >/dev/null
 
   echo "Done."
 done
