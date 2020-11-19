@@ -1,4 +1,3 @@
-#!/usr/bin/zsh
 set -e
 
 if [ -z "$1" ]; then
@@ -11,25 +10,28 @@ for package in "$@"; do
   devDep=$(cat package.json | json "devDependencies['$package']")
 
   if [ "$devDep" ]; then
-    echo "$package is a devDependency."
-    flag='-D'
+    echo "$package is a development dependency."
+    flag='--save-dev'
   else
     if [ "$regularDep" ]; then
-      echo "$package is a dependency."
-      flag='-S'
+      echo "$package is a production dependency."
+      flag='--save-prod'
     else
       echo "$package is not a depencency!"
       exit 1
     fi
   fi
 
-  latest=$(npm info "$package" version)
+  latest=$(npm view "$package" version)
   range="^$latest"
 
   echo "Latest $package is $latest."
 
+  echo -n "Installing ... "
   npm install --quiet "$flag" "$package@$range"
+  echo "Done."
 
+  echo "Staging files."
   git add --quiet package.json
   if [ -f npm-shrinkwrap.json ]; then
     npm shrinkwrap
@@ -41,5 +43,8 @@ for package in "$@"; do
     fi
   fi
 
+  echo "Committing."
   git commit --no-verify -m "$package@$latest"
+
+  echo "Done."
 done
