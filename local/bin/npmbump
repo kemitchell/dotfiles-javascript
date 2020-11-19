@@ -33,14 +33,14 @@ for package in "$@"; do
   echo "Done."
 
 
-  git add package.json >/dev/null
+  git add package.json >/dev/null 2>&1
   if [ -f npm-shrinkwrap.json ]; then
     npm shrinkwrap
-    git add npm-shrinkwrap.json >/dev/null
+    git add npm-shrinkwrap.json >/dev/null 2>&1
   fi
   if (git ls-files | fgrep package-lock.json > /dev/null) && [ -f package-lock.json ]; then
     if git ls-files | fgrep package-lock.json; then
-      git add package-lock.json >/dev/null
+      git add package-lock.json >/dev/null 2>&1
     fi
   fi
 
