@@ -1,3 +1,4 @@
+#!/usr/bin/zsh
 set -e
 
 if [ -z "$1" ]; then
@@ -31,7 +32,6 @@ for package in "$@"; do
   npm install --quiet --no-audit --no-fund "$flag" "$package@$range"
   echo "Done."
 
-  echo "Staging files."
   git add package.json >/dev/null
   if [ -f npm-shrinkwrap.json ]; then
     npm shrinkwrap
@@ -43,7 +43,7 @@ for package in "$@"; do
     fi
   fi
 
-  echo "Committing."
+  echo -n "Committing ..."
   git commit --no-verify -m "$package@$latest" >/dev/null
 
   echo "Done."
