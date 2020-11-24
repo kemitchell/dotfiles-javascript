@@ -1,13 +1,17 @@
 #!/bin/zsh
 set -e
-if [ -z "$1" ]; then
-  echo "Usage: <x.y.z>"
+version="$1"
+if [ -z "$version" ]; then
+  version=$(getcurrentnodeversion)
 fi
 temp=`mktemp`
-curl --silent -o "$temp" "https://nodejs.org/dist/v${1}/node-v${1}-linux-x64.tar.xz"
-tar xpvf "$temp" -C $PREFIX --strip-components=1
-npm rebuild
 function cleanup {
   rm -f "$temp"
 }
 trap cleanup EXIT
+curl --silent -o "$temp" "https://nodejs.org/dist/v$version/node-v$version-linux-x64.tar.xz"
+tar xpvf "$temp" -C $PREFIX --strip-components=1 >/dev/null
+npm i -q -g npm >/dev/null
+npm -q rebuild >/dev/null
+echo "Node $(node -v)"
+echo "npm $(npm -v)"
