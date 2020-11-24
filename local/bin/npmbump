@@ -49,7 +49,7 @@ for package in "$@"; do
     git add --update **/*.js
   fi
 
-  echo -n "Committing ..."
+  echo -n "Committing ... "
   git commit --no-verify -m "$package@$latest" >/dev/null
 
   echo "Done."
