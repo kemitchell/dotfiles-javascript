@@ -1,28 +1,32 @@
 #!/bin/zsh
-STABLE_VERSION_TAG="$1"
-SOURCE="$PREFIX/source/node"
-mkdir -p "$SOURCE"
+set -e
 
-echo "$SOURCE"
-
-# Already cloned.
-if [ -d "$SOURCE" ]; then
-  cd "$SOURCE"
-  make distclean
-  git fetch
-
-# Clone from GitHub.
-else
-  git clone "https://github.com/nodejs/node" "$SOURCE"
-  cd "$SOURCE"
+version="$1"
+if [ -z "$version" ]; then
+  version=$(getcurrentnodeversion)
 fi
 
-# Install build tools.
+mkdir -p "$PREFIX/source"
+repository="$PREFIX/source/node"
+
+# Already cloned.
+if [ -d "$repository" ]; then
+  cd "$repository"
+  make distclean
+  git fetch
+# Clone from GitHub.
+else
+  git clone "https://github.com/nodejs/node" "$repository"
+  cd "$repository"
+fi
+
+# Install build tools and dependencies.
 sudo apt-get update
-sudo apt-get -y install build-essential curl libssl-dev openssl
+# sudo apt-get -y install build-essential curl libssl-dev openssl python g++ make
+sudo apt-get install python g++ make # from BUILDING.md as of 2020-11-23
 
 # Build and install.
-git checkout "$STABLE_VERSION_TAG"
+git checkout "v$version"
 cmi
 
 # Upgrade to latest npm.
