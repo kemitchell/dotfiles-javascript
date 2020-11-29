@@ -1,0 +1,23 @@
+#!/bin/bash
+set -e
+
+if [ -z "$1" ]; then
+  echo "Usage: <Git Remote>" >/dev/stderr
+  exit 1
+fi
+
+tmp=$(mktemp -d)
+function cleanup () {
+  rm -rf "$tmp"
+}
+trap cleanup EXIT
+
+git clone --quiet "$1" "$tmp"
+cd "$tmp"
+if [ -f package-lock.json ] || [ -f npm-shrinkwrap.json ]; then
+  npm ci --quiet >/dev/null
+else
+  npm i --quiet >/dev/null
+fi
+
+npm audit --parseable --audit-level=moderate
