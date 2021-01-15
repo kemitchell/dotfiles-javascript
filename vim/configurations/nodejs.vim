@@ -24,6 +24,7 @@ augroup json
   autocmd FileType json setlocal expandtab
   autocmd FileType json setlocal foldmethod=syntax
   autocmd FileType json setlocal formatprg=json
+  autocmd FileType json setlocal wrap
   autocmd FileType json noremap <buffer> <leader>f <Esc>:%!formatjson<CR>
   autocmd FileType json noremap <buffer> <leader>l <Esc>:%!lamos-to-json<CR>
   autocmd FileType json call JSSettings()
