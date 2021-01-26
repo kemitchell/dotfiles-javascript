@@ -1,29 +1,29 @@
 #!/bin/zsh
 cat <<PACKAGES | xargs npm --global --build-from-source install
-  commonform-lint
-  commonform-critique
-  commonform-docx
-  commonform-html
-  commonform-commonmark
-  csslint
-  cssmin
-  depcheck
-  difflet
-  gh
-  git-latest-semver-tag
-  http-server
-  json
-  lispy-json
-  mustache
-  mustache-vars
-  ndjson-cli
-  node-eval-json
-  np
-  npx
-  pino
-  scuttlebot
-  semver
-  standard
-  standard-markdown
-  strip-ansi-cli
+commonform-lint
+commonform-critique
+commonform-docx
+commonform-html
+commonform-commonmark
+csslint
+cssmin
+depcheck
+difflet
+gh
+git-latest-semver-tag
+http-server
+json
+lispy-json
+mustache
+mustache-vars
+ndjson-cli
+node-eval-json
+np
+npx
+pino
+scuttlebot
+semver
+standard
+standard-markdown
+strip-ansi-cli
 PACKAGES
