@@ -1,10 +1,11 @@
 #!/bin/zsh
 cat <<PACKAGES | xargs npm --global --build-from-source install
-commonform-lint
+commonform-commonmark
 commonform-critique
 commonform-docx
 commonform-html
-commonform-commonmark
+commonform-lint
+commonmark
 csslint
 cssmin
 depcheck
@@ -13,6 +14,7 @@ gh
 git-latest-semver-tag
 http-server
 json
+kemarkdown
 lispy-json
 markdown-spellcheck
 mustache
