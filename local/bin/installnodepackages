@@ -1,5 +1,5 @@
 #!/bin/zsh
-cat <<PACKAGES | xargs npm --global --build-from-source install
+cat <<PACKAGES | xargs npm --global --build-from-source --force install
 commonform-commonmark
 commonform-critique
 commonform-docx
@@ -15,6 +15,7 @@ git-latest-semver-tag
 http-server
 json
 kemarkdown
+licensor
 lispy-json
 markdown-spellcheck
 mustache
@@ -22,7 +23,6 @@ mustache-vars
 ndjson-cli
 node-eval-json
 np
-npx
 pino
 prettier
 semver
