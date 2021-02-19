@@ -1,4 +1,4 @@
 #!/bin/sh
 set -e
 npm update -g npm
-npm update --depth 9999 -g
+npm update -g
