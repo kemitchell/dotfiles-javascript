@@ -13,8 +13,8 @@ difflet
 gh
 git-latest-semver-tag
 json
-kemarkdown
-kemserver
+kemitchell/kemarkdown.js
+kemitchell/kemserver.js
 licensor
 lispy-json
 markdown-spellcheck
