@@ -1,15 +1,16 @@
-#!/bin/bash
+#!/bin/sh
+set -e
 if [ -z "$1" ]; then
   echo "Usage: <git remote>"
   exit 1
 fi
 
 TMPDIR="$(mktemp -d)"
-function cleanup {
+cleanup () {
   rm -rf "$TMPDIR"
 }
 trap cleanup EXIT
 
-git clone --quiet "$1" "$TMPDIR" 2>&1 >/dev/null
+git clone --quiet "$1" "$TMPDIR" >/dev/null 2>&1
 cd "$TMPDIR"
 npm audit

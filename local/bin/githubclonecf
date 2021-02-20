@@ -1,2 +1,0 @@
-#!/bin/zsh
-ghorgrepos commonform | selecta | xargs hub clone
