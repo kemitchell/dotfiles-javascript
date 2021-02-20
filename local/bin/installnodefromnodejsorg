@@ -2,7 +2,7 @@
 set -e
 version="$1"
 if [ -z "$version" ]; then
-  version=$(getcurrentnodeversion)
+  version=$(currentnodeversion)
 fi
 temp=`mktemp`
 function cleanup {

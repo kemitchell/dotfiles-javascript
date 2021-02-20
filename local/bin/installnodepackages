@@ -12,9 +12,9 @@ depcheck
 difflet
 gh
 git-latest-semver-tag
-http-server
 json
 kemarkdown
+kemserver
 licensor
 lispy-json
 markdown-spellcheck
