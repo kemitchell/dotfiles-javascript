@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 if [ -e package.json ]; then
   if [ -d node_modules ]; then
     npm test 2>&1 | tee test.log

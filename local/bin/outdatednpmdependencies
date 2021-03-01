@@ -1,16 +1,18 @@
-#!/bin/bash
+#!/bin/sh
+set -e
+
 if [ -z "$1" ]; then
   echo "Usage: <git remote>"
   exit 1
 fi
 
 TMPDIR="$(mktemp -d)"
-function cleanup {
+cleanup () {
   rm -rf "$TMPDIR"
 }
 trap cleanup EXIT
 
-git clone --quiet "$1" "$TMPDIR" 2>&1 >/dev/null
+git clone --quiet "$1" "$TMPDIR" >/dev/null 2>&1
 cd "$TMPDIR"
-npm install 2>&1 >/dev/null
-npm outdated --production | fgrep -v Package
+npm install >/dev/null 2>&1
+npm outdated --production | grep -f -v Package

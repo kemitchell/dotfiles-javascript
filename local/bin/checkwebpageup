@@ -1,11 +1,11 @@
 #!/usr/bin/env node
-var url = process.argv[2]
+const url = process.argv[2]
 if (!url) {
   console.error('Usage: <URL>')
   process.exit(1)
 }
 
-var protocol
+let protocol
 if (url.startsWith('https://')) {
   protocol = require('https')
 } else if (url.startsWith('http://')) {
@@ -16,7 +16,7 @@ if (url.startsWith('https://')) {
 }
 
 protocol.get(url, function (response) {
-  var statusCode = response.statusCode
+  const statusCode = response.statusCode
   if ([200, 301, 302, 303].includes(statusCode)) {
     process.exit(0)
   }

@@ -1,17 +1,17 @@
 #!/usr/bin/env node
-var path = require('path')
-var base = path.basename(process.cwd())
+const path = require('path')
+let base = path.basename(process.cwd())
 
 if (/\.js$/.test(base)) {
   base = base.slice(0, -3)
 }
 
-var org
+let org
 if (/commonform/.test(base)) org = 'commonform'
 if (/jslicense/.test(base)) org = 'jslicense'
 else org = 'kemitchell'
 
-var data = {
+const data = {
   name: base,
   version: '0.0.0',
   description: '',

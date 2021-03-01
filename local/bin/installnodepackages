@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 cat <<PACKAGES | xargs npm --global install
 commonform-commonmark
 commonform-critique

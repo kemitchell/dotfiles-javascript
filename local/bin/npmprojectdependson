@@ -4,11 +4,11 @@ if (process.argv.length < 3) {
   process.exit(1)
 }
 
-var name = process.argv[2]
-var cwd = process.argv[3] || process.cwd()
+const name = process.argv[2]
+const cwd = process.argv[3] || process.cwd()
 
-var manifest = require(require('path').join(cwd, 'package.json'))
-var found = false
+const manifest = require(require('path').join(cwd, 'package.json'))
+let found = false
 check('dependencies')
 check('devDependencies')
 process.exit(found ? 0 : 1)

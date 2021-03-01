@@ -1,2 +1,2 @@
-#!/bin/zsh
-np patch
+#!/bin/sh
+exec np patch

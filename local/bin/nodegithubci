@@ -1,5 +1,6 @@
-#!/bin/bash
+#!/bin/sh
 set -e
+
 if [ ! -f package.json ]; then
   echo "No package.json file."
   exit 1

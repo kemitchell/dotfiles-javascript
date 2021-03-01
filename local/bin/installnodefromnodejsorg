@@ -1,11 +1,11 @@
-#!/bin/zsh
+#!/bin/sh
 set -e
 version="$1"
 if [ -z "$version" ]; then
   version=$(currentnodeversion)
 fi
 temp=`mktemp`
-function cleanup {
+cleanup () {
   rm -f "$temp"
 }
 trap cleanup EXIT

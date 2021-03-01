@@ -1,4 +1,6 @@
-#!/bin/zsh
+#!/bin/sh
+set -e
+
 npm i -D husky lint-staged
 
 scripts=$(cat package.json | json scripts)

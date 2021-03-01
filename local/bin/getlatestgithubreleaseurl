@@ -1,5 +1,5 @@
-#!/bin/zsh
-if [[ -z "$1" || -z "$2" ]] ;then
+#!/bin/sh
+if [ -z "$1" ] || [ -z "$2" ] ;then
   echo "Usage: <owner/repo> <substring>"
 fi
 

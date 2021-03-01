@@ -1,11 +1,11 @@
-#!/bin/zsh
+#!/bin/sh
 set -e
 if [[ -z "$1" || -z "$2" ]]; then
   echo "Usage: <owner/repo> <substring>"
   exit 1
 fi
 TMP=$(mktemp)
-function cleanup { rm -f "$TMP"; }
+cleanup () { rm -f "$TMP"; }
 trap cleanup EXIT
 URL=$(getlatestgithubreleaseurl "$1" "$2")
 curl --silent --location "$URL" -o "$TMP"

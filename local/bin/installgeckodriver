@@ -1,9 +1,9 @@
-#!/bin/bash
+#!/bin/sh
 set -e
 bin=$HOME/.local/bin/geckodriver
 url=$(getlatestgithubreleaseurl "mozilla/geckodriver" linux64)
 tmp=$(mktemp -d)
-function cleanup {
+cleanup () {
   rm -r "$tmp"
 }
 trap cleanup EXIT

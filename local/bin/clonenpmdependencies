@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/bin/sh
+set -e
+
 if [ -z "$1" ] || [ -z "$2" ]; then
   echo "Usage: <remote> <clones directory>"
 fi
@@ -10,7 +12,7 @@ mkdir -p "$destination"
 
 TMP=$(mktemp -d)
 trap cleanup EXIT
-function cleanup () {
+cleanup () {
   rm -rf "$TMP"
 }
 

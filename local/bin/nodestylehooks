@@ -1,4 +1,6 @@
-#!/bin/zsh
+#!/bin/sh
+set -e
+
 if [ ! -f package.json ]; then
   echo "No package.json" >/dev/stderr
   exit

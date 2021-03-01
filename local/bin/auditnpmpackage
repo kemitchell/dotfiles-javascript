@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 set -e
 if [ -z "$1" ] || [ -z "$2" ]; then
   echo "Usage: package version"
@@ -10,7 +10,7 @@ VERSION="$2"
 DIRECTORY="$NAME@$VERSION"
 TARBALL="$DIRECTORY.tgz"
 
-function cleanup {
+cleanup () {
   rm -f "$TARBALL"
 }
 trap cleanup EXIT

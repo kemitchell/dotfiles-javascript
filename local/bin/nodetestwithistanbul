@@ -1,4 +1,5 @@
-#!/bin/zsh
+#!/bin/sh
+set -e
 npm i --save-dev istanbul
 scripts=$(cat package.json | json scripts)
 if [ -z "$scripts" ]; then
