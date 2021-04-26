@@ -1,17 +1,14 @@
 #!/bin/sh
+set -e
+
 if [ -z "$1" ] || [ -z "$2" ] ;then
   echo "Usage: <owner/repo> <substring>"
+  exit 1
 fi
 
-if [ ! hash ndjson-cat >/dev/null 2>&1 ]; then
-  npm i -g ndjson-cli
-fi
+hash ndjson-cat || npm i -g ndjson-cli
+hash json || npm i -g json
 
-if [ ! hash json >/dev/null 2>&1 ]; then
-  npm i -g json
-fi
-
-set -e
 curl --silent "https://api.github.com/repos/$1/releases/latest" \
 | ndjson-cat \
 | ndjson-split "d.assets" \
