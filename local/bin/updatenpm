@@ -1,4 +1,4 @@
 #!/bin/sh
 set -e
-npm update -g npm
+npm update -g npm@latest
 npm update -g
