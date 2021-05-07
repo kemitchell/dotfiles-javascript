@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
 name="$1"
@@ -18,7 +18,7 @@ if [[ "$remote" == https://github.com/babel/babel/tree/master/packages/* ]]; the
   remote="https://github.com/babel/babel"
 fi
 
-mkdir -p $(basename "$destination")
+mkdir -p "$(basename "$destination")"
 
 if [ -d "$destination" ]; then
   git --git-dir "$destination" fetch --quiet --all
