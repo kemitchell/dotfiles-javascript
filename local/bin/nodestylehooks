@@ -13,5 +13,5 @@ npmprojectdependson standard >/dev/null || TOOLS="$TOOLS standard"
 
 npm i -D husky lint-staged $TOOLS
 
-npx json -I -f package.json -e 'this.husky={"hooks":{"pre-commit":"lint-staged"}}'
-npx json -I -f package.json -e 'this["lint-staged"]={"*.js":["standard --fix","git add"],"*.json":["reformat-json-files","git add"]}'
+npx --quiet --yes json -I -f package.json -e 'this.husky={"hooks":{"pre-commit":"lint-staged"}}'
+npx --quiet --yes json -I -f package.json -e 'this["lint-staged"]={"*.js":["standard --fix","git add"],"*.json":["reformat-json-files","git add"]}'
