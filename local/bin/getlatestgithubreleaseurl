@@ -6,11 +6,8 @@ if [ -z "$1" ] || [ -z "$2" ] ;then
   exit 1
 fi
 
-hash ndjson-cat || npm i -g ndjson-cli
-hash json || npm i -g json
-
 curl --silent "https://api.github.com/repos/$1/releases/latest" \
-| ndjson-cat \
-| ndjson-split "d.assets" \
-| ndjson-filter "d.name.indexOf(\"$2\") > 0" \
-| json browser_download_url
+| npx --quiet --yes -p ndjson-cli ndjson-cat \
+| npx --quiet --yes -p ndjson-cli ndjson-split "d.assets" \
+| npx --quiet --yes -p ndjson-cli ndjson-filter "d.name.indexOf(\"$2\") > 0" \
+| npx --quiet --yes json browser_download_url
