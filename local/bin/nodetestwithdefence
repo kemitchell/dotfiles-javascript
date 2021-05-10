@@ -1,4 +1,3 @@
-#!/bin/sh
 npm i --save-dev defence-cli replace-require-self
 if [ ! -f README.md ]; then
 	echo "\`\`\`javascript\nvar assert = require('assert')\n\`\`\`" > README.md

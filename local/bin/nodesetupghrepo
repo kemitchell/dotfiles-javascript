@@ -1,4 +1,3 @@
-#!/bin/sh
 REPO=$(json repository < package.json)
 PACKAGE=$(json name < package.json)
 BASENAME=`basename "$REPO"`

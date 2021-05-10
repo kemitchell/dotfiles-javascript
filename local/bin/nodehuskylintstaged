@@ -1,4 +1,3 @@
-#!/bin/sh
 npm install --save-dev husky lint-staged reformat-json-files
 npmensure json >/dev/null
 json -I -f package.json -e 'this["lint-staged"]={"*.js":["standard --fix","git add"],"*.json":["reformat-json-files","git add"]}' >/dev/null

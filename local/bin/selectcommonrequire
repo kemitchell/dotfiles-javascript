@@ -1,4 +1,3 @@
-#!/bin/sh
 LIST="$HOME/.common-requires.js"
 if [ ! -f "$LIST" ]; then
   echo "Missing $LIST"

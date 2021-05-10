@@ -1,5 +1,3 @@
-#!/bin/sh
-
 DEP=$(realpath "$1")
 
 if [ -z "$DEP" ]; then

@@ -1,14 +1,13 @@
-#!/bin/sh
 if [ -z "$1" ] ;then
   echo "Usage: <owner/repo>"
   exit 1
 fi
 
-if [ ! hash ndjson-cat >/dev/null 2>&1 ]; then
+if ! hash ndjson-cat >/dev/null 2>&1; then
   npm i -g ndjson-cli
 fi
 
-if [ ! hash json >/dev/null 2>&1 ]; then
+if ! hash json >/dev/null 2>&1; then
   npm i -g json
 fi
 

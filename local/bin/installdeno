@@ -1,3 +1,2 @@
-#!/bin/sh
 hash unzip || sudo apt install unzip
 curl -fsSL https://deno.land/x/install/install.sh | sh

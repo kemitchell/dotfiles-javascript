@@ -1,9 +1,8 @@
-#!/bin/sh
 set -e
 curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
 LIST=/etc/apt/sources.list.d/nodesource.list
 if [ ! -f "$LIST" ]; then
-  source /etc/os-release
+  . /etc/os-release
   echo "deb http://deb.nodesource.com/node_14.x ${VERSION_CODENAME} main" | sudo tee "$LIST"
 fi
 sudo apt-get update

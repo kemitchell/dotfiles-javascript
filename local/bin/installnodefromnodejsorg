@@ -1,16 +1,15 @@
-#!/bin/sh
 set -e
 version="$1"
 if [ -z "$version" ]; then
   version=$(currentnodeversion)
 fi
-temp=`mktemp`
+temp=$(mktemp)
 cleanup () {
   rm -f "$temp"
 }
 trap cleanup EXIT
 curl --silent -o "$temp" "https://nodejs.org/dist/v$version/node-v$version-linux-x64.tar.xz"
-tar xpvf "$temp" -C $PREFIX --strip-components=1 >/dev/null
+tar xpvf "$temp" -C "$PREFIX" --strip-components=1 >/dev/null
 npm i -q -g npm >/dev/null
 npm -q rebuild >/dev/null
 echo "Node $(node -v)"

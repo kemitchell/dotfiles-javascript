@@ -1,4 +1,3 @@
-#!/bin/sh
 # Have to run actual grep after git grep,
 # since git grep does not have -o
 re="process\.env\.[A-Z0-9_]+"

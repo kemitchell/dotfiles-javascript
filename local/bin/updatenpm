@@ -1,3 +1,2 @@
-#!/bin/sh
 set -e
 npm update -g npm@latest

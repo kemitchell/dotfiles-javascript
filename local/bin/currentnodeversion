@@ -1,2 +1,1 @@
-#!/bin/sh
 curl -s "https://nodejs.org/en/download/" | grep -oP "Latest LTS Version: <strong>\K\d+.\d+.\d+"

@@ -1,4 +1,3 @@
-#!/bin/sh
 PIDFILE=/tmp/xvfb.pid
 if test -f $PIDFILE; then
 	kill $(cat $PIDFILE)
