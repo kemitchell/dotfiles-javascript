@@ -1,4 +1,3 @@
-#!/bin/zsh
 while read slug; do
   remote="https://github.com/$slug"
   outdatednpmdependencies "$remote"
