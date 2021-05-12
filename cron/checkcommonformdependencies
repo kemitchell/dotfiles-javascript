@@ -1,3 +1,4 @@
+#!/bin/sh
 while read slug; do
   remote="https://github.com/$slug"
   outdatednpmdependencies "$remote"
