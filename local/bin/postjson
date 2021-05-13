@@ -1,1 +1,2 @@
+#!/bin/sh
 exec curl -v -X POST -H "Content-Type: application/json" --data @- $1

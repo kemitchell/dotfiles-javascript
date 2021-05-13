@@ -1,3 +1,4 @@
+#!/bin/sh
 set -e
 licensor < package.json | par -w72 > LICENSE
 git add LICENSE

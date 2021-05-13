@@ -1,1 +1,2 @@
+#!/bin/sh
 echo '{ "private": true }' > package.json

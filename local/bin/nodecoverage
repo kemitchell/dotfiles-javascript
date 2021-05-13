@@ -1,1 +1,2 @@
-npm run coverage
+#!/bin/sh
+exec npm run coverage

@@ -1,3 +1,4 @@
+#!/bin/sh
 set -e
 if [ -f /etc/apt/sources.list.d/nodesource.list ]; then
   sudo apt-get upgrade nodejs

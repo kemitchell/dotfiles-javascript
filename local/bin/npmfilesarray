@@ -1,1 +1,2 @@
+#!/bin/sh
 exec json -I -f package.json -e 'this.files=["index.js"]'

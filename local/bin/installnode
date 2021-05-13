@@ -1,3 +1,4 @@
+#!/bin/sh
 set -e
 curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
 LIST=/etc/apt/sources.list.d/nodesource.list

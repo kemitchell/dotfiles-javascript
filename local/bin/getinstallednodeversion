@@ -1,1 +1,2 @@
+#!/bin/sh
 node --version | sed 's/^v//' || echo "NONE"

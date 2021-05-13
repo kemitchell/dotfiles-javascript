@@ -1,3 +1,4 @@
+#!/bin/sh
 set -e
 bin=$HOME/.local/bin/geckodriver
 url=$(getlatestgithubreleaseurl "mozilla/geckodriver" linux64)

@@ -1,1 +1,2 @@
+#!/bin/sh
 echo "package-lock=false" >> .npmrm

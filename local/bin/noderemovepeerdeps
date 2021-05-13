@@ -1,1 +1,2 @@
+#!/bin/sh
 json -I -f package.json -e 'delete this.peerDependencies'

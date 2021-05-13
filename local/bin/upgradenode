@@ -1,1 +1,2 @@
-upgradeprogram currentnodeversion getinstallednodeversion installnodebinary
+#!/bin/sh
+exec upgradeprogram currentnodeversion getinstallednodeversion installnodebinary
