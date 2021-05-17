@@ -7,5 +7,5 @@ fi
 
 will-it-rain
 if [ $? = 0 ]; then
-  mutt -s "Rain Today" "kyle@kemitchell.com" <<< "NOAA forecasts rain today."
+  echo "NOAA forecasts rain today." | mutt -s "Rain Today" "kyle@kemitchell.com"
 fi
