@@ -1,0 +1,20 @@
+const args = require('yargs/yargs')(require('yargs/helpers').hideBin(process.argv))
+  .usage('Usage: $0 [options]')
+  .option('directory', {
+    alias: 'd',
+    type: 'string',
+    default: '.',
+    description: 'Set directory to serve'
+  })
+  .option('port', {
+    alias: 'p',
+    type: 'number',
+    default: 8080,
+    description: 'Set server port'
+  })
+  .help()
+  .alias('h', 'help')
+  .version()
+  .alias('v', 'version')
+  .strict()
+  .argv
