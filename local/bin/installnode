@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
 asdf plugin add nodejs
-version="$(currentnodejsversion)"
+version="$(currentnodeversion)"
 asdf install nodejs "$version"
 asdf global nodejs "$version"
