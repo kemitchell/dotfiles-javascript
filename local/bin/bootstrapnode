@@ -1,10 +1,5 @@
 #!/bin/sh
 set -e
-if [ -f /etc/apt/sources.list.d/nodesource.list ]; then
-  sudo apt-get upgrade nodejs
-else
-  curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-  sudo apt-get install -y nodejs
-fi
+installnode
 installnodepackages
 npm login
