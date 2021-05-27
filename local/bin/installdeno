@@ -1,3 +1,4 @@
 #!/bin/sh
-hash unzip || sudo apt install unzip
-curl -fsSL https://deno.land/x/install/install.sh | sh
+set -e
+asdf plugin-add deno https://github.com/asdf-community/asdf-deno.git
+asdf install deno "$(asdf latest deno)"
