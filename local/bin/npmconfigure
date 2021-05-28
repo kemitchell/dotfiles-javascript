@@ -1,0 +1,11 @@
+#!/bin/sh
+npm config set -g git-tag-version true
+npm config set -g init-author-email "kyle@kemitchell.com"
+npm config set -g init-author-name "Kyle E. Mitchell"
+npm config set -g init-author-url "https://kemitchell.com"
+npm config set -g init-license "BlueOak-1.0.0"
+npm config set -g spinner false
+npm config set -g progress false
+npm config set -g loglevel error
+npm config set -g tag-version-prefix v
+npm config set -g color false

@@ -4,3 +4,5 @@ asdf plugin add nodejs || echo "Plugin was already installed."
 version="$(currentnodeversion)"
 asdf install nodejs "$version"
 asdf global nodejs "$version"
+npm i -g npm@latest
+npmconfigure
