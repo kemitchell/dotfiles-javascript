@@ -1,14 +1,4 @@
 #!/bin/sh
 set -e
-
-if [ -z "$1" ]; then
-	echo "Usage: <version>"
-	exit 1
-fi
-
-repo="$PREFIX/source/redis"
-git clone https://github.com/antirez/redis "$repo"
-cd "$repo"
-git checkout "$1"
-make PREFIX="$PREFIX"
-make PREFIX="$PREFIX" install
+asdf plugin-add redis https://github.com/smashedtoatoms/asdf-redis.git
+asdf install redis latest
