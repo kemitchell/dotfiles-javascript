@@ -20,4 +20,4 @@ else
   npm i --quiet >/dev/null
 fi
 
-npm audit --parseable --audit-level=moderate | sed '/^\s*$/d'
+npm audit --parseable --audit-level=moderate 2>/dev/null | sed '/^\s*$/d'
