@@ -4,11 +4,11 @@ if [ -z "$1" ] ;then
   exit 1
 fi
 
-if ! hash ndjson-cat >/dev/null 2>&1; then
+if ! command -v ndjson-cat >/dev/null 2>&1; then
   npm i -g ndjson-cli
 fi
 
-if ! hash json >/dev/null 2>&1; then
+if ! command -v json >/dev/null 2>&1; then
   npm i -g json
 fi
 

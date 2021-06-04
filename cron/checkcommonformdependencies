@@ -1,5 +1,5 @@
 #!/bin/sh
-while read slug; do
+while read -r slug; do
   remote="https://github.com/$slug"
   outdatednpmdependencies "$remote"
   #auditnpmdependencies "$remote"

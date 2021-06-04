@@ -1,10 +1,10 @@
 #!/bin/sh
 npm i --save-dev defence-cli replace-require-self
-if [ ! -f README.md ]; then
-	echo "\`\`\`javascript\nvar assert = require('assert')\n\`\`\`" > README.md
+if ! [ -f README.md ]; then
+	printf "\`\`\`javascript\nvar assert = require('assert')\n\`\`\`" > README.md
 fi
 
-scripts=$(cat package.json | json scripts)
+scripts="$(json scripts < package.json)"
 
 if [ -z "$scripts" ]; then
   json -I -f package.json -e 'this.scripts={}'

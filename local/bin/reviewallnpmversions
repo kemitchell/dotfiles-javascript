@@ -12,10 +12,10 @@ versions=$(curl "https://registry.npmjs.org/$package" 2>/dev/null | json version
 mkdir -p "$package"
 cd "$package"
 
-while read version; do
+print "$versions" | while read -r version; do
   tarball="$package-$version.tgz"
   wget --quiet "https://registry.npmjs.org/$package/-/$tarball"
   tar -xf "$tarball"
   mv package "$version"
   rm "$tarball"
-done <<< "$versions"
+done

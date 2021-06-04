@@ -1,11 +1,10 @@
 #!/bin/sh
 set -e
 
-if [ ! hash will-it-rain &>/dev/null ]; then
+if ! command -v will-it-rain >/dev/null; then
   npm i -g kemitchell/will-it-rain.js
 fi
 
-will-it-rain
-if [ $? = 0 ]; then
+if will-it-rain; then
   echo "NOAA forecasts rain today." | mutt -s "Rain Today" "kyle@kemitchell.com"
 fi
